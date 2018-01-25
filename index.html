@@ -108,14 +108,43 @@
             </div>
         </div>
     </body>
-    <main class="l-main">
+
+    <main class="l-main" id="vue-app" v-cloak>
         <div class="content-wrapper content-wrapper--with-bg">
             <h1 class="page-title">Dashboard</h1>
             <div class="panel panel-default">
+                
+
+
+
+
+
+
+
+
                 <div class="panel-heading">
-                    <h3>Hello John, here are your current shipments:</h3>
+                    <h3>{{ helloMsg }}</h3>
                 </div>
                 <div class="panel-body">
+
+                    <div class="timeline-item" v-if="loading">
+                        <div class="animated-background">
+                            <div class="background-masker header-top"></div>
+                            <div class="background-masker header-left"></div>
+                            <div class="background-masker header-right"></div>
+                            <div class="background-masker header-bottom"></div>
+                            <div class="background-masker subheader-left"></div>
+                            <div class="background-masker subheader-right"></div>
+                            <div class="background-masker subheader-bottom"></div>
+                            <div class="background-masker content-top"></div>
+                            <div class="background-masker content-first-end"></div>
+                            <div class="background-masker content-second-line"></div>
+                            <div class="background-masker content-second-end"></div>
+                            <div class="background-masker content-third-line"></div>
+                            <div class="background-masker content-third-end"></div>
+                        </div>
+                    </div>
+
                     <table class="table table-condensed" style="border-collapse:collapse;">
                         <thead>
                             <tr>
@@ -217,10 +246,13 @@
             <!-- end .page-content -->
         </div>
     </main>
+    <!-- JS stuff -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src="./scripts.js"></script>
+    <script src="./vue-components.js"></script>
 </body>
 
 </html>
