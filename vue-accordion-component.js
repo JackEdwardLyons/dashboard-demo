@@ -1,3 +1,12 @@
+/* ----------------------------------------------------------------- *\
+ * Vue JS
+ * Lifecycle hooks: https://alligator.io/vuejs/component-lifecycle/
+ * ----------------------------------------------------------------- */
+
+
+ // Todo:
+ // Potentially move data into a accordion-data-table component or 
+ // webpack compiled .vue files
 new Vue({
     el: '#vue-app',
     data: function () {
@@ -17,13 +26,12 @@ new Vue({
     created: function () {
         var self = this;
         $.when(
-            $.get( "API/mock-booking-data.json", function (req) {
-                self.bookingData.push(req.data);
-            }),
-            $.get( "API/mock-request-data.json", function (req) {
-                self.requestData.push(req.data);
-            })
-        )
+            $.get( "API/mock-booking-data.json"),
+            $.get( "API/mock-request-data.json")
+        ).then(function( booking, request ) {
+            self.bookingData.push(booking[0].data);
+            self.requestData.push(request[0].data);
+        })
     },
     mounted: function () {
         this.loading = true;
