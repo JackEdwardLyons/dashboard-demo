@@ -1,10 +1,12 @@
 new Vue({
-    el:  '#vue-app',
-    data: function() {
+    el: '#vue-app',
+    data: function () {
         return {
             name: 'John',
             shipments: 4,
-            loading: false
+            loading: false,
+            bookingData: [],
+            requestData: []
         }
     },
     computed: {
@@ -12,10 +14,21 @@ new Vue({
             return 'Hello, ' + this.name + '. You have ' + this.shipments + ' shipments.';
         }
     },
-    mounted: function() {
+    created: function () {
+        var self = this;
+        $.when(
+            $.get( "API/mock-booking-data.json", function (req) {
+                self.bookingData.push(req.data);
+            }),
+            $.get( "API/mock-request-data.json", function (req) {
+                self.requestData.push(req.data);
+            })
+        )
+    },
+    mounted: function () {
         this.loading = true;
         var self = this;
-        setTimeout(function() {
+        setTimeout(function () {
             self.loading = false;
         }, 2000);
     }
