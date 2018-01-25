@@ -498,6 +498,7 @@ main.l-main .page-title {
 }
 
 .table {
+    border-radius: 2px;
     margin-bottom: 0;
     text-align: left;
 }

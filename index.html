@@ -145,7 +145,7 @@
                         </div>
                     </div>
 
-                    <table class="table table-condensed" style="border-collapse:collapse;">
+                    <table class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
                         <thead>
                             <tr>
                                 <th>Status</th>
@@ -162,7 +162,7 @@
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody class="">
                             <tr data-toggle="collapse" data-target="#demo1" class="accordion-toggle">
                                 <td class="text-success text-uppercase text-bold">Confirmed</td>
                                 <td>P101</td>
@@ -252,7 +252,7 @@
     <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js'></script>
     <script src="./scripts.js"></script>
-    <script src="./vue-components.js"></script>
+    <script src="./vue-accordion-component.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,106 @@
+{
+	"data": [{
+			"InternalReference": "PO101",
+			"FreightCost": "2400",
+			"CarrierPartnerAlias": "MAEU",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": [{
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "45G0",
+				"EquipmentDescription": "40 Highcube"
+			}, {
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "22G0",
+				"EquipmentDescription": "20 General"
+			}],
+			"PortOfDischargeName": "Singapore, Singapore",
+			"PortOfLoadName": "Sydney, Australia",
+			"OriginDeparts": "20-Oct-17",
+			"VesselName": "CARL SCHULTE",
+			"ForwarderDetails": {
+				"ForwarderName": "DSV Air & Sea"
+			},
+			"DestinationArrives": "07-Nov-17",
+			"VoyageNumber": "735N",
+			"CarrierName": "Maersk Line"
+		},
+		{
+			"InternalReference": "123K5",
+			"FreightCost": "1200",
+			"CarrierPartnerAlias": "CMAU",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": {
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "42G0",
+				"EquipmentDescription": "40 General"
+			},
+			"PortOfDischargeName": "Shanghai, China",
+			"PortOfLoadName": "Brisbane, Australia",
+			"OriginDeparts": "15-Nov-17",
+			"VesselName": "Cape Glory",
+			"ForwarderDetails": {
+				"ForwarderName": "DB Schenker"
+			},
+			"DestinationArrives": "30-Nov-17",
+			"VoyageNumber": "101N",
+			"CarrierName": "CMA CGM"
+		},
+		{
+			"InternalReference": "PO234",
+			"FreightCost": "3200",
+			"CarrierPartnerAlias": "PILU",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": [{
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "45G0",
+				"EquipmentDescription": "40 Highcube"
+			}, {
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "22G0",
+				"EquipmentDescription": "20 General"
+			}, {
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "42G0",
+				"EquipmentDescription": "40 General"
+			}],
+			"PortOfDischargeName": "Long Beach, United States",
+			"PortOfLoadName": "Hamburg, Germany",
+			"OriginDeparts": "20-Aug-17",
+			"VesselName": "Cape Progress",
+			"ForwarderDetails": {
+				"ForwarderName": "DB Schenker"
+			},
+			"DestinationArrives": "07-Nov-17",
+			"VoyageNumber": "545K",
+			"CarrierName": "PIL"
+		},
+		{
+			"InternalReference": "PO1233",
+			"FreightCost": "800",
+			"CarrierPartnerAlias": "HSUD",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": {
+				"NumberOfEquipment": "1",
+				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+				"EquipmentTypeCode": "22G0",
+				"EquipmentDescription": "20 General"
+			},
+			"PortOfDischargeName": "Singapore, Singapore",
+			"PortOfLoadName": "Brisbane, Australia",
+			"OriginDeparts": "25-Oct-17",
+			"VesselName": "OOCL Baltimore",
+			"ForwarderDetails": {
+				"ForwarderName": "DB Schenker"
+			},
+			"DestinationArrives": "01-Nov-17",
+			"VoyageNumber": "505N",
+			"CarrierName": "Hamburg Sud"
+		}
+	]
+}

@@ -17,6 +17,6 @@ new Vue({
         var self = this;
         setTimeout(function() {
             self.loading = false;
-        }, 2000)
+        }, 2000);
     }
 })
