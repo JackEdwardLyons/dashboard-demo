@@ -4,22 +4,34 @@
  * ----------------------------------------------------------------- */
 
 
- // Todo:
- // Potentially move data into a accordion-data-table component or 
- // webpack compiled .vue files
-new Vue({
-    el: '#vue-app',
+// Notes:
+// Potentially move data into a accordion-data-table component or 
+// webpack compiled .vue files
+Vue.component('vue-accordion-component', {
+    template: '#vue-accordion-component',
     data: function () {
         return {
             name: 'John',
             shipments: 4,
             loading: false,
-            bookingData: [],
-            requestData: []
+            bookingData: [{
+                isOpen: false
+            }],
+            requestData: [{
+                isOpen: false
+            }]
+        }
+    },
+    methods: {
+        collapseMenu (index, id) {
+            return id ? '#collapse_' + index : 'collapse_' + index;
+        },
+        collapseIn (shipment) {
+            shipment.isOpen = !shipment.isOpen;
         }
     },
     computed: {
-        helloMsg() {
+        helloMsg () {
             return 'Hello, ' + this.name + '. You have ' + this.shipments + ' shipments.';
         }
     },
@@ -31,7 +43,7 @@ new Vue({
         ).then(function( booking, request ) {
             self.bookingData.push(booking[0].data);
             self.requestData.push(request[0].data);
-        })
+        });
     },
     mounted: function () {
         this.loading = true;
@@ -40,4 +52,9 @@ new Vue({
             self.loading = false;
         }, 2000);
     }
-})
+});
+
+/* The Vue Instance */
+new Vue({
+    el: '#vue-app'
+});
