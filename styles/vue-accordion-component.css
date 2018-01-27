@@ -38,6 +38,11 @@ th {
     cursor: pointer;
 }
 
+.panel-body {
+    border: 2px solid goldenrod;
+    margin: 1em 0;
+}
+
 
 /* Vue cloak hides braces until instance has loaded */
 

@@ -57,7 +57,17 @@
 				"NumberOfEquipment": "1",
 				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
 				"EquipmentTypeCode": "45G0",
-				"EquipmentDescription": "40 Highcube"
+				"EquipmentDescription": "40 Highcube" 
+				/* required
+				List out numbers of containers
+				// pull out container types from DB
+				# No. of Containers : 3
+				-------------------------------------------
+				"40' GP":  1 | "20' GP": 0 | "40' HC": 10
+				
+				if NULL don't show 
+				*/
+
 			}, {
 				"NumberOfEquipment": "1",
 				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",

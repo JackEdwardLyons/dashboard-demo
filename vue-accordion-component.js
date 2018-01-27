@@ -7,9 +7,9 @@
 /* Helper Function */
 function extendObject ( array, prop ) {
     var result = $.map( array, function(el) {
-        var o = $.extend({}, el);
-        o[prop] = false;
-        return o;
+        var newObject = $.extend({}, el);
+        newObject[ prop ] = false;
+        return newObject;
     });
     return result;
 }
@@ -30,9 +30,6 @@ Vue.component('vue-accordion-component', {
         }
     },
     methods: {
-        collapseMenu (index, id) {
-            return id ? '#collapse_' + index : 'collapse_' + index;
-        },
         collapseIn (index) {
             return this.requestData[index].isOpen = true;
             //console.log(this.requestData[index]);
@@ -40,6 +37,7 @@ Vue.component('vue-accordion-component', {
     },
     computed: {
         helloMsg () {
+            // helo message needs to be dynamic once the request data has been loaded.
             return 'Hello, ' + this.name + '. You have ' + this.shipments + ' shipments.';
         }
     },
