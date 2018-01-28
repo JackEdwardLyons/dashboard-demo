@@ -24,19 +24,28 @@
 			},
 			"DestinationArrives": "07-Nov-17",
 			"VoyageNumber": "735N",
-			"CarrierName": "Maersk Line"
+			"CarrierName": "Maersk Line",
+			"BookingData": [{
+				"LatestFullDeliveryDate": "18-Oct-17",
+				"CarrierReferenceNumber": "MAEU5054144",
+				"ContainerReleaseNumber": "123456",
+				"EarliestEmptyPickUpDate": "10-Oct-17",
+				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
+				"EarliestFullDropOff": "16-Oct-17",
+				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
+			}]
 		},
 		{
 			"InternalReference": "123K5",
 			"FreightCost": "1200",
 			"CarrierPartnerAlias": "CMAU",
 			"Context": "ExplorateNoTerms",
-			"EquipmentDetails": {
+			"EquipmentDetails": [{
 				"NumberOfEquipment": "1",
 				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
 				"EquipmentTypeCode": "42G0",
 				"EquipmentDescription": "40 General"
-			},
+			}],
 			"PortOfDischargeName": "Shanghai, China",
 			"PortOfLoadName": "Brisbane, Australia",
 			"OriginDeparts": "15-Nov-17",
@@ -46,7 +55,16 @@
 			},
 			"DestinationArrives": "30-Nov-17",
 			"VoyageNumber": "101N",
-			"CarrierName": "CMA CGM"
+			"CarrierName": "CMA CGM",
+			"BookingData": [{
+				"LatestFullDeliveryDate": "18-Aug-17",
+				"CarrierReferenceNumber": "PIL12345667",
+				"ContainerReleaseNumber": "P56u098",
+				"EarliestEmptyPickupDate": "07-Aug-17",
+				"EmptyPickUpLocation": "Patricks Container Terminal, Hamburgstrasse, Hamburg, Germany",
+				"EarliestFullDropOffDate": "10-Aug-17",
+				"FullDropOffLocation": "DP World Terminal, Hamburgheissenhaufen, Hamburg, Germany"
+			}]
 		},
 		{
 			"InternalReference": "PO234",
@@ -57,17 +75,7 @@
 				"NumberOfEquipment": "1",
 				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
 				"EquipmentTypeCode": "45G0",
-				"EquipmentDescription": "40 Highcube" 
-				/* required
-				List out numbers of containers
-				// pull out container types from DB
-				# No. of Containers : 3
-				-------------------------------------------
-				"40' GP":  1 | "20' GP": 0 | "40' HC": 10
-				
-				if NULL don't show 
-				*/
-
+				"EquipmentDescription": "40 Highcube"
 			}, {
 				"NumberOfEquipment": "1",
 				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
@@ -88,19 +96,28 @@
 			},
 			"DestinationArrives": "07-Nov-17",
 			"VoyageNumber": "545K",
-			"CarrierName": "PIL"
+			"CarrierName": "PIL",
+			"BookingData": [{
+				"LatestFullDeliveryDate": "18-Oct-17",
+				"CarrierReferenceNumber": "MAEU5054144",
+				"ContainerReleaseNumber": "123456",
+				"EarliestEmptyPickUpDate": "10-Oct-17",
+				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
+				"EarliestFullDropOff": "16-Oct-17",
+				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
+			}]
 		},
 		{
 			"InternalReference": "PO1233",
 			"FreightCost": "800",
 			"CarrierPartnerAlias": "HSUD",
 			"Context": "ExplorateNoTerms",
-			"EquipmentDetails": {
+			"EquipmentDetails": [{
 				"NumberOfEquipment": "1",
 				"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
 				"EquipmentTypeCode": "22G0",
 				"EquipmentDescription": "20 General"
-			},
+			}],
 			"PortOfDischargeName": "Singapore, Singapore",
 			"PortOfLoadName": "Brisbane, Australia",
 			"OriginDeparts": "25-Oct-17",
@@ -110,7 +127,16 @@
 			},
 			"DestinationArrives": "01-Nov-17",
 			"VoyageNumber": "505N",
-			"CarrierName": "Hamburg Sud"
+			"CarrierName": "Hamburg Sud",
+			"BookingData": [{
+				"LatestFullDeliveryDate": "18-Oct-17",
+				"CarrierReferenceNumber": "MAEU5054144",
+				"ContainerReleaseNumber": "123456",
+				"EarliestEmptyPickUpDate": "10-Oct-17",
+				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
+				"EarliestFullDropOff": "16-Oct-17",
+				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
+			}]
 		}
 	]
 }

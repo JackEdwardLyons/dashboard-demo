@@ -16,13 +16,6 @@
             "EmptyPickUpLocation": "Patricks Container Terminal, Hamburgstrasse, Hamburg, Germany",
             "EarliestFullDropOffDate": "10-Aug-17",
             "FullDropOffLocation": "DP World Terminal, Hamburgheissenhaufen, Hamburg, Germany"
-        },
-        {
-            "LatestFullDeliveryDate": ""
-        },
-        {
-            "LatestFullDeliveryDate": ""
         }
-
     ]
 }

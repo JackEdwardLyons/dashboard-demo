@@ -13,6 +13,16 @@ function extendObject ( array, prop ) {
     });
     return result;
 }
+
+function flattenArray (data) {
+	return data.reduce(function iter(r, a) {
+		if (a === null)            return r; 
+		if (Array.isArray(a))      return a.reduce(iter, r); 
+		if (typeof a === 'object') return Object.keys(a).map(k => a[k]).reduce(iter, r);
+		return r.concat(a);
+	}, []);
+}
+// console.log(flattenArray(data))
   
 
 // Notes:
@@ -22,8 +32,8 @@ Vue.component('vue-accordion-component', {
     template: '#vue-accordion-component',
     data: function () {
         return {
-            name: 'John',
-            shipments: 4,
+            username: 'John',
+            shipments: null,
             loading: false,
             bookingData: [],
             requestData: []
@@ -38,7 +48,7 @@ Vue.component('vue-accordion-component', {
     computed: {
         helloMsg () {
             // helo message needs to be dynamic once the request data has been loaded.
-            return 'Hello, ' + this.name + '. You have ' + this.shipments + ' shipments.';
+            return 'Hello, ' + this.name + '. You have ' + this.requestData.length + ' shipments.';
         }
     },
     created: function () {
