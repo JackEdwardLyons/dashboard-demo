@@ -3,31 +3,11 @@
  * Lifecycle hooks: https://alligator.io/vuejs/component-lifecycle/
  * ----------------------------------------------------------------- */
 
-
-/* Helper Function */
-function extendObject ( array, prop ) {
-    var result = $.map( array, function(el) {
-        var newObject = $.extend({}, el);
-        newObject[ prop ] = false;
-        return newObject;
-    });
-    return result;
-}
-
-function flattenArray (data) {
-	return data.reduce(function iter(r, a) {
-		if (a === null)            return r; 
-		if (Array.isArray(a))      return a.reduce(iter, r); 
-		if (typeof a === 'object') return Object.keys(a).map(k => a[k]).reduce(iter, r);
-		return r.concat(a);
-	}, []);
-}
-// console.log(flattenArray(data))
-  
-
 // Notes:
 // Potentially move data into a accordion-data-table component or 
 // webpack compiled .vue files
+
+/* ---- ACCORDION COMPONENT ---- */
 Vue.component('vue-accordion-component', {
     template: '#vue-accordion-component',
     data: function () {
@@ -73,7 +53,35 @@ Vue.component('vue-accordion-component', {
     }
 });
 
-/* The Vue Instance */
+
+/* Plan for JSON inputter
+ * ----------------------
+ * 1. PUT data  :: (ie) edit existing data within JSON array
+ * To edit the existing data a .find() method will need to loop through the 
+ * bookingData array and look at each items InternalReference.
+ * If it matches, then update that object.
+ * 
+ * 2. POST data :: (ie) add new data to JSON array
+ * Select either booking or schedule data array to post new data.
+ * 
+ */
+
+
+
+/* ---- JSON INPUTTER ---- */
+Vue.component('vue-json-inputter-component', {
+    template: '#vue-json-inputter-component',
+    data: function () {
+        return {
+        }
+    }
+});
+
+
+/* -------------------- *\
+    Vue Instance
+\* -------------------- */
 new Vue({
     el: '#vue-app'
 });
+

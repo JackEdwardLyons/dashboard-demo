@@ -1,10 +1,8 @@
 "use strict";
-
+// This came with the bootsnipp template
 var Dashboard = function () {
     var global = {
-        tooltipOptions: {
-            placement: "right"
-        },
+        tooltipOptions: { placement: "right" },
         menuClass: ".c-menu"
     };
 
@@ -12,7 +10,6 @@ var Dashboard = function () {
         var hasSubmenu = $(el).hasClass("has-submenu");
         $(global.menuClass + " .is-active").removeClass("is-active");
         $(el).addClass("is-active");
-
         // if (hasSubmenu) {
         // 	$(el).find("ul").slideDown();
         // }
@@ -44,3 +41,37 @@ var Dashboard = function () {
     };
 }();
 Dashboard.init();
+
+
+
+
+/* -------------------- *\
+    Helper Functions
+\* -------------------- */
+
+/* Helper Function */
+function extendObject ( array, prop ) {
+    var result = $.map( array, function(el) {
+        var newObject = $.extend({}, el);
+        newObject[ prop ] = false;
+        return newObject;
+    });
+    return result;
+}
+
+function flattenArray (data) {
+	return data.reduce(function iter(r, a) {
+		if (a === null)            return r; 
+		if (Array.isArray(a))      return a.reduce(iter, r); 
+        if (typeof a === 'object') return $.map( a, function(key,val) { return key[val] } ).reduce(iter, r);
+		return r.concat(a);
+	}, []);
+}
+
+
+
+
+
+
+
+
