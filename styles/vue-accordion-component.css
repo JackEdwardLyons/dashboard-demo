@@ -10,6 +10,10 @@ th {
     vertical-align: top !important;
 }
 
+table {
+    
+}
+
 /* Jack's CSS */
 
 .table-hover:hover {
@@ -50,13 +54,18 @@ th {
     display: none
 }
 
+/* Status Colours */
+.pending-status {
+    color: orange;
+}
+.confirmed-status {
+    color: green;
+}
+.rejected-status {
+    color: red;
+}
 
-/* Loading CSS */
-
-
-/**
-* main style
-*/
+/* Loading Animations */
 
 .timeline-item {
     background-color: #fff;

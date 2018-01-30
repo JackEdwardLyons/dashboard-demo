@@ -129,7 +129,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading">
-                    <h3>Hello {{ username }}, you have {{ requestData.length }} shipments:</h3>
+                    <h3>Hello {{ username }}, you have {{ scheduleData.length }} shipments:</h3>
                 </div>
 
                 <table class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
@@ -149,7 +149,7 @@
                         </tr>
                     </thead>
 
-                    <tbody v-for="(shipment, index) in requestData" class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
+                    <tbody v-for="(shipment, index) in scheduleData" class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
                         <tr>
                             <div class="timeline-item" v-if="loading">
                                 <div class="animated-background">
@@ -170,9 +170,14 @@
                             </div>
                         </tr>
                         <tr @click="shipment.isOpen = !shipment.isOpen" class="accordion-toggle table-hover">
-                            <td class="text-success text-uppercase text-bold">
-                                <!-- Conditional based on a carrier reference ID -->
-                                Confirmed
+                            <td class="text-success text-uppercase text-bold" 
+                                :class="{ 
+                                    'pending-status':   shipment.bookingStatus === 'pending', 
+                                    'confirmed-status': shipment.bookingStatus === 'confirmed',
+                                    'rejected-status':  shipment.bookingStatus === 'rejected',
+                                }"
+                            >
+                                {{ shipment.bookingStatus }}
                             </td>
                             <td>{{ shipment.InternalReference }}</td>
                             <td>{{ shipment.CarrierName }}</td>
@@ -206,27 +211,27 @@
                                                 <td>{{ shipment.VoyageNumber }}</td>
 
                                                 <th>Empty Pickup Address:</th>
-                                                <td>{{ shipment.BookingData[0].EmptyPickUpLocation }}</td>
+                                                <td>{{ shipment.BookingData.EmptyPickUpLocation }}</td>
 
                                                 <th>Full Dropoff Location:</th>
-                                                <td>{{ shipment.BookingData[0].FullDropOffLocation }}</td>
+                                                <td>{{ shipment.BookingData.FullDropOffLocation }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Carrier Reference Number:</th>
-                                                <td>{{ shipment.BookingData[0].CarrierReferenceNumber }}</td>
+                                                <td>{{ shipment.BookingData.CarrierReferenceNumber }}</td>
 
                                                 <th>Earliest Empty Pickup:</th>
-                                                <td>{{ shipment.BookingData[0].EarliestEmptyPickUpDate }}</td>
+                                                <td>{{ shipment.BookingData.EarliestEmptyPickUpDate }}</td>
                                                 
                                                 <th>Earliest Full Dropoff:</th>
-                                                <td>{{ shipment.BookingData[0].EarliestFullDropOff }}</td>
+                                                <td>{{ shipment.BookingData.EarliestFullDropOff }}</td>
                                             </tr>
                                             <tr>
                                                 <th>Container Release Number:</th>
-                                                <td>{{ shipment.BookingData[0].ContainerReleaseNumber }}</td>
+                                                <td>{{ shipment.BookingData.ContainerReleaseNumber }}</td>
 
                                                 <th>Latest Full Dropoff:</th>
-                                                <td>{{ shipment.BookingData[0].LatestFullDeliveryDate }}</td>
+                                                <td>{{ shipment.BookingData.LatestFullDeliveryDate }}</td>
                                                 
                                                 <th>Forwarder:</th>
                                                 <td>{{ shipment.VoyageNumber }}</td>
@@ -249,10 +254,15 @@
         <div>
             <div class="form-group">
                 <label for="comment">Input JSON here:</label>
-                <label class="checkbox-inline"><input type="radio" name="checkbox" value="">Booking Data</label>
-                <label class="checkbox-inline"><input type="radio" name="checkbox" value="">Schedule Data</label>
-                <button class="btn btn-default" style="margin-left: 15px;">Add Data</button>
-                <textarea class="form-control json-textarea" rows="5"></textarea>
+                <label class="checkbox-inline"><input type="radio" v-model="jsonOption" name="checkbox" value="booking">Booking Data</label>
+                <label class="checkbox-inline"><input type="radio" v-model="jsonOption" name="checkbox" value="schedule">Schedule Data</label>
+                <button class="btn btn-default" 
+                        style="margin-left: 15px;"
+                        @click="sendJsonData"
+                >
+                    Add Data
+                </button>
+                <textarea class="form-control json-textarea" rows="5" v-model="jsonData" value="jsonData"></textarea>
             </div> 
         </div>
     </template>

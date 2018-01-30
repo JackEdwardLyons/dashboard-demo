@@ -16,42 +16,58 @@ Vue.component('vue-accordion-component', {
             shipments: null,
             loading: false,
             bookingData: [],
-            requestData: []
+            scheduleData: [],
+            jsonUpdateOption: '', 
+            jsonFromTextArea: ''
         }
     },
     methods: {
-        collapseIn (index) {
-            return this.requestData[index].isOpen = true;
-            //console.log(this.requestData[index]);
+        collapseIn: function (index) {
+            return this.scheduleData[index].isOpen = true;
         }
     },
     computed: {
-        helloMsg () {
-            // helo message needs to be dynamic once the request data has been loaded.
-            return 'Hello, ' + this.name + '. You have ' + this.requestData.length + ' shipments.';
+        helloMsg: function () {
+            return 'Hello, ' + this.name + '. You have ' + this.scheduleData.length + ' shipments.';
         }
     },
     created: function () {
         var self = this;
         $.when(
             $.get( "API/mock-booking-data.json"),
-            $.get( "API/mock-request-data.json")
-        ).then(function( booking, request ) {
+            $.get( "API/mock-schedule-data.json")
+        ).then(function( booking, schedule ) {
             self.bookingData.push(booking[0].data);
-            self.requestData.push(request[0].data);
-
-            self.bookingData = extendObject(self.bookingData[0], 'isOpen');
-            self.requestData = extendObject(self.requestData[0], 'isOpen');
+            self.scheduleData.push(schedule[0].data);
+            self.scheduleData = extendObject(self.scheduleData[0], { isOpen: false, bookingStatus: 'pending' });
         });
     },
     mounted: function () {
         this.loading = true;
         var self = this;
+
+        function getBookingStatus() {
+            return $.map(self.scheduleData, function (value, index) {
+                return value.BookingData.CarrierReferenceNumber !== ''
+                    ? value.bookingStatus = 'confirmed'
+                    : value.bookingStatus = 'rejected';
+            });
+        }
+
         setTimeout(function () {
+            getBookingStatus();
             self.loading = false;
         }, 2000);
+
+        // Receive JSON data via EventBus
+        EventBus.$on('update-accordion-data', function (arg1, arg2) {
+            this.jsonUpdateOption = arg1;
+            this.jsonFromTextArea = arg2;
+        }.bind(this))
     }
 });
+
+
 
 
 /* Plan for JSON inputter
@@ -67,13 +83,32 @@ Vue.component('vue-accordion-component', {
  */
 
 
-
 /* ---- JSON INPUTTER ---- */
 Vue.component('vue-json-inputter-component', {
     template: '#vue-json-inputter-component',
     data: function () {
         return {
+            jsonOption: '',
+            jsonData: ''
         }
+    },
+    methods: {
+        sendJsonData () {
+            this.$bus.$emit('update-accordion-data', this.jsonOption, this.jsonData);
+        }
+    }
+});
+
+
+/* -------------------- *\
+    Vue Event Bus
+\* -------------------- */
+
+var EventBus = new Vue();
+
+Object.defineProperties(Vue.prototype, {
+    $bus: {
+        get: function () { return EventBus }
     }
 });
 
@@ -81,6 +116,7 @@ Vue.component('vue-json-inputter-component', {
 /* -------------------- *\
     Vue Instance
 \* -------------------- */
+
 new Vue({
     el: '#vue-app'
 });

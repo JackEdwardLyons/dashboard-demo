@@ -25,15 +25,15 @@
 			"DestinationArrives": "07-Nov-17",
 			"VoyageNumber": "735N",
 			"CarrierName": "Maersk Line",
-			"BookingData": [{
+			"BookingData": {
 				"LatestFullDeliveryDate": "18-Oct-17",
-				"CarrierReferenceNumber": "MAEU5054144",
+				"CarrierReferenceNumber": "",
 				"ContainerReleaseNumber": "123456",
 				"EarliestEmptyPickUpDate": "10-Oct-17",
 				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
 				"EarliestFullDropOff": "16-Oct-17",
 				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
-			}]
+			}
 		},
 		{
 			"InternalReference": "123K5",
@@ -56,15 +56,15 @@
 			"DestinationArrives": "30-Nov-17",
 			"VoyageNumber": "101N",
 			"CarrierName": "CMA CGM",
-			"BookingData": [{
+			"BookingData": {
 				"LatestFullDeliveryDate": "18-Aug-17",
-				"CarrierReferenceNumber": "PIL12345667",
+				"CarrierReferenceNumber": "PIL1234511667",
 				"ContainerReleaseNumber": "P56u098",
 				"EarliestEmptyPickupDate": "07-Aug-17",
 				"EmptyPickUpLocation": "Patricks Container Terminal, Hamburgstrasse, Hamburg, Germany",
 				"EarliestFullDropOffDate": "10-Aug-17",
 				"FullDropOffLocation": "DP World Terminal, Hamburgheissenhaufen, Hamburg, Germany"
-			}]
+			}
 		},
 		{
 			"InternalReference": "PO234",
@@ -97,15 +97,15 @@
 			"DestinationArrives": "07-Nov-17",
 			"VoyageNumber": "545K",
 			"CarrierName": "PIL",
-			"BookingData": [{
+			"BookingData": {
 				"LatestFullDeliveryDate": "18-Oct-17",
-				"CarrierReferenceNumber": "MAEU5054144",
+				"CarrierReferenceNumber": "",
 				"ContainerReleaseNumber": "123456",
 				"EarliestEmptyPickUpDate": "10-Oct-17",
 				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
 				"EarliestFullDropOff": "16-Oct-17",
 				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
-			}]
+			}
 		},
 		{
 			"InternalReference": "PO1233",
@@ -128,15 +128,15 @@
 			"DestinationArrives": "01-Nov-17",
 			"VoyageNumber": "505N",
 			"CarrierName": "Hamburg Sud",
-			"BookingData": [{
+			"BookingData": {
 				"LatestFullDeliveryDate": "18-Oct-17",
-				"CarrierReferenceNumber": "MAEU5054144",
+				"CarrierReferenceNumber": "MAEU5054443144",
 				"ContainerReleaseNumber": "123456",
 				"EarliestEmptyPickUpDate": "10-Oct-17",
 				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
 				"EarliestFullDropOff": "16-Oct-17",
 				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
-			}]
+			}
 		}
 	]
 }

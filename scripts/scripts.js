@@ -50,10 +50,9 @@ Dashboard.init();
 \* -------------------- */
 
 /* Helper Function */
-function extendObject ( array, prop ) {
+function extendObject ( array, props ) {
     var result = $.map( array, function(el) {
-        var newObject = $.extend({}, el);
-        newObject[ prop ] = false;
+        var newObject = $.extend({}, el, props);
         return newObject;
     });
     return result;
