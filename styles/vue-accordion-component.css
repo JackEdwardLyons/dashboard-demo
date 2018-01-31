@@ -47,12 +47,17 @@ table {
     margin: 1em 0;
 }
 
+.gold-bg {
+    background: gold !important;
+}
 
 /* Vue cloak hides braces until instance has loaded */
 
 [v-cloak] {
     display: none
 }
+
+
 
 /* Status Colours */
 .pending-status {

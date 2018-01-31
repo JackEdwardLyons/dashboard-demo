@@ -17,52 +17,77 @@ Vue.component('vue-accordion-component', {
             loading: false,
             bookingData: [],
             scheduleData: [],
-            jsonUpdateOption: '', 
             jsonFromTextArea: ''
         }
     },
     methods: {
         collapseIn: function (index) {
             return this.scheduleData[index].isOpen = true;
+        },
+        getBookingStatus() {
+            return $.map(this.scheduleData, function (value, index) {
+                return value.BookingData.CarrierReferenceNumber !== ''
+
+                    ? value.bookingStatus = 'confirmed'
+                    : value.bookingStatus = 'rejected';
+            });
         }
     },
     computed: {
         helloMsg: function () {
             return 'Hello, ' + this.name + '. You have ' + this.scheduleData.length + ' shipments.';
+        },
+        bookingStatus: function (a) {
+            // GRAB DATA FROM SHIPMENTS.JSON
+            // default to REJECTED
+            // test to see if CONFIRMATION is empty
+            // if not empty -- status is CONFIRMED
+            // META DATA available to show on front end
+            // if confirmation is empty your in PENDING ... 
+            // If deleted then CANCELLED
+            // shipments[1]["confirmation"].hasOwnProperty( "ContainerReleaseNumber" )
+            // shipments[1].keys("confirmation").length == 0;
+            return a.BookingData.CarrierReferenceNumber !== ''
+                ? a.bookingStatus = 'confirmed'
+                : a.bookingStatus = 'rejected';
+        }
+    },
+    watch: {
+        scheduleData: function(val) {
+            console.log('watching: ', val);
+            this.getBookingStatus();
         }
     },
     created: function () {
         var self = this;
         $.when(
-            $.get( "API/mock-booking-data.json"),
+            $.get( "API/shipments.json"),
             $.get( "API/mock-schedule-data.json")
-        ).then(function( booking, schedule ) {
-            self.bookingData.push(booking[0].data);
+        ).then(function( shipments, schedule ) {
+            self.bookingData.push(shipments[0]);
             self.scheduleData.push(schedule[0].data);
-            self.scheduleData = extendObject(self.scheduleData[0], { isOpen: false, bookingStatus: 'pending' });
+            self.scheduleData = extendObject(self.scheduleData[0], { isOpen: false, bookingStatus: 'rejected' });
         });
     },
     mounted: function () {
         this.loading = true;
         var self = this;
 
-        function getBookingStatus() {
-            return $.map(self.scheduleData, function (value, index) {
-                return value.BookingData.CarrierReferenceNumber !== ''
-                    ? value.bookingStatus = 'confirmed'
-                    : value.bookingStatus = 'rejected';
-            });
-        }
-
         setTimeout(function () {
-            getBookingStatus();
+            self.getBookingStatus();
             self.loading = false;
         }, 2000);
 
         // Receive JSON data via EventBus
-        EventBus.$on('update-accordion-data', function (arg1, arg2) {
-            this.jsonUpdateOption = arg1;
-            this.jsonFromTextArea = arg2;
+        // The object needs extending in order for the 
+        // booking status and isOpen click event
+        // to both function.
+        EventBus.$on('update-accordion-data', function (payload) {
+            this.jsonFromTextArea = payload;
+            var newData = JSON.parse(this.jsonFromTextArea);
+            $.extend({}, newData, { isOpen: false });
+            console.log('new data: ', newData);
+            this.scheduleData.push(newData);
         }.bind(this))
     }
 });
@@ -94,7 +119,7 @@ Vue.component('vue-json-inputter-component', {
     },
     methods: {
         sendJsonData () {
-            this.$bus.$emit('update-accordion-data', this.jsonOption, this.jsonData);
+            this.$bus.$emit('update-accordion-data', this.jsonData);
         }
     }
 });

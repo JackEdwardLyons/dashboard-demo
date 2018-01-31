@@ -148,27 +148,28 @@
                             <th>Details</th>
                         </tr>
                     </thead>
+                    <tr>
+                        <div class="timeline-item" v-if="loading">
+                            <div class="animated-background">
+                                <div class="background-masker header-top"></div>
+                                <div class="background-masker header-left"></div>
+                                <div class="background-masker header-right"></div>
+                                <div class="background-masker header-bottom"></div>
+                                <div class="background-masker subheader-left"></div>
+                                <div class="background-masker subheader-right"></div>
+                                <div class="background-masker subheader-bottom"></div>
+                                <div class="background-masker content-top"></div>
+                                <div class="background-masker content-first-end"></div>
+                                <div class="background-masker content-second-line"></div>
+                                <div class="background-masker content-second-end"></div>
+                                <div class="background-masker content-third-line"></div>
+                                <div class="background-masker content-third-end"></div>
+                            </div>
+                        </div>
+                    </tr>
 
                     <tbody v-for="(shipment, index) in scheduleData" class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
-                        <tr>
-                            <div class="timeline-item" v-if="loading">
-                                <div class="animated-background">
-                                    <div class="background-masker header-top"></div>
-                                    <div class="background-masker header-left"></div>
-                                    <div class="background-masker header-right"></div>
-                                    <div class="background-masker header-bottom"></div>
-                                    <div class="background-masker subheader-left"></div>
-                                    <div class="background-masker subheader-right"></div>
-                                    <div class="background-masker subheader-bottom"></div>
-                                    <div class="background-masker content-top"></div>
-                                    <div class="background-masker content-first-end"></div>
-                                    <div class="background-masker content-second-line"></div>
-                                    <div class="background-masker content-second-end"></div>
-                                    <div class="background-masker content-third-line"></div>
-                                    <div class="background-masker content-third-end"></div>
-                                </div>
-                            </div>
-                        </tr>
+                        
                         <tr @click="shipment.isOpen = !shipment.isOpen" class="accordion-toggle table-hover">
                             <td class="text-success text-uppercase text-bold" 
                                 :class="{ 
@@ -177,23 +178,15 @@
                                     'rejected-status':  shipment.bookingStatus === 'rejected',
                                 }"
                             >
-                                {{ shipment.bookingStatus }}
+                                {{ shipment.BookingData.CarrierReferenceNumber  === '' ? 'REJECTED' : 'CONFIRMED' }}
                             </td>
                             <td>{{ shipment.InternalReference }}</td>
                             <td>{{ shipment.CarrierName }}</td>
                             <td>{{ shipment.VesselName }}</td>
-                            <td>
-                                <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.PortOfLoadName">
-                                    {{ shipment.PortOfLoadName }}
-                                </a>
-                            </td>
+                            <td>{{ shipment.PortOfLoadName }}</td>
                             <td>15-Apr-18</td>
                             <td>16-Apr-18</td>
-                            <td>
-                                <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.PortOfDischargeName">
-                                    {{ shipment.PortOfDischargeName }}
-                                </a>
-                            </td>
+                            <td>{{ shipment.PortOfDischargeName }}</td>
                             <td>{{ shipment.FreightCost }}</td>
                             <td>{{ shipment.EquipmentDetails.length }}</td>
                             <td>
@@ -204,9 +197,9 @@
                         <tr>
                             <td colspan="12" class="hiddenRow" v-show="shipment.isOpen">
                                 <div class="accordian-body collapse" :class="{ 'in': shipment.isOpen }">
-                                    <table class="table table-striped hidden-table">
-                                        <tbody>
-                                            <tr>
+                                    <table class="table table-striped hidden-table gold-bg">
+                                        <tbody class="gold-bg">
+                                            <tr class="gold-bg">
                                                 <th>Voyage Number:</th>
                                                 <td>{{ shipment.VoyageNumber }}</td>
 
@@ -216,7 +209,7 @@
                                                 <th>Full Dropoff Location:</th>
                                                 <td>{{ shipment.BookingData.FullDropOffLocation }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr class="gold-bg">
                                                 <th>Carrier Reference Number:</th>
                                                 <td>{{ shipment.BookingData.CarrierReferenceNumber }}</td>
 
@@ -226,7 +219,7 @@
                                                 <th>Earliest Full Dropoff:</th>
                                                 <td>{{ shipment.BookingData.EarliestFullDropOff }}</td>
                                             </tr>
-                                            <tr>
+                                            <tr class="gold-bg">
                                                 <th>Container Release Number:</th>
                                                 <td>{{ shipment.BookingData.ContainerReleaseNumber }}</td>
 
@@ -254,8 +247,8 @@
         <div>
             <div class="form-group">
                 <label for="comment">Input JSON here:</label>
-                <label class="checkbox-inline"><input type="radio" v-model="jsonOption" name="checkbox" value="booking">Booking Data</label>
-                <label class="checkbox-inline"><input type="radio" v-model="jsonOption" name="checkbox" value="schedule">Schedule Data</label>
+                <!-- <label class="checkbox-inline"><input type="radio" v-model="jsonOption" name="checkbox" value="booking">Booking Data</label>
+                <label class="checkbox-inline"><input type="radio" v-model="jsonOption" name="checkbox" value="schedule">Schedule Data</label> -->
                 <button class="btn btn-default" 
                         style="margin-left: 15px;"
                         @click="sendJsonData"
