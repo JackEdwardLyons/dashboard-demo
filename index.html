@@ -129,7 +129,7 @@
             <div class="panel panel-default">
 
                 <div class="panel-heading">
-                    <h3>Hello {{ username }}, you have {{ scheduleData.length }} shipments:</h3>
+                    <h3>Hello {{ username }}, you have {{ shipmentData.length }} shipments:</h3>
                 </div>
 
                 <table class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
@@ -168,17 +168,17 @@
                         </div>
                     </tr>
 
-                    <tbody v-for="(shipment, index) in scheduleData" class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
+                    <tbody v-for="(shipment, index) in shipmentData" class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
                         
                         <tr @click="shipment.isOpen = !shipment.isOpen" class="accordion-toggle table-hover">
                             <td class="text-success text-uppercase text-bold" 
                                 :class="{ 
-                                    'pending-status':   shipment.bookingStatus === 'pending', 
-                                    'confirmed-status': shipment.bookingStatus === 'confirmed',
-                                    'rejected-status':  shipment.bookingStatus === 'rejected',
+                                    'pending-status':   shipment.bookingStatus === 'PENDING', 
+                                    'confirmed-status': shipment.bookingStatus === 'CONFIRMED',
+                                    'rejected-status':  shipment.bookingStatus === 'REJECTED',
                                 }"
                             >
-                                {{ shipment.BookingData.CarrierReferenceNumber  === '' ? 'REJECTED' : 'CONFIRMED' }}
+                                {{ shipment.bookingStatus }}
                             </td>
                             <td>{{ shipment.InternalReference }}</td>
                             <td>{{ shipment.CarrierName }}</td>
@@ -204,27 +204,27 @@
                                                 <td>{{ shipment.VoyageNumber }}</td>
 
                                                 <th>Empty Pickup Address:</th>
-                                                <td>{{ shipment.BookingData.EmptyPickUpLocation }}</td>
+                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.EmptyPickUpLocation }}</td>
 
                                                 <th>Full Dropoff Location:</th>
-                                                <td>{{ shipment.BookingData.FullDropOffLocation }}</td>
+                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.FullDropOffLocation }}</td>
                                             </tr>
-                                            <tr class="gold-bg">
+                                            <tr class="gold-bg" v-if="shipment.confirmation">
                                                 <th>Carrier Reference Number:</th>
-                                                <td>{{ shipment.BookingData.CarrierReferenceNumber }}</td>
+                                                <td>{{ shipment.confirmation.CarrierReferenceNumber }}</td>
 
                                                 <th>Earliest Empty Pickup:</th>
-                                                <td>{{ shipment.BookingData.EarliestEmptyPickUpDate }}</td>
+                                                <td>{{ shipment.confirmation.EarliestEmptyPickUpDate }}</td>
                                                 
                                                 <th>Earliest Full Dropoff:</th>
-                                                <td>{{ shipment.BookingData.EarliestFullDropOff }}</td>
+                                                <td>{{ shipment.confirmation.EarliestFullDropOff }}</td>
                                             </tr>
                                             <tr class="gold-bg">
                                                 <th>Container Release Number:</th>
-                                                <td>{{ shipment.BookingData.ContainerReleaseNumber }}</td>
+                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.ContainerReleaseNumber }}</td>
 
                                                 <th>Latest Full Dropoff:</th>
-                                                <td>{{ shipment.BookingData.LatestFullDeliveryDate }}</td>
+                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate }}</td>
                                                 
                                                 <th>Forwarder:</th>
                                                 <td>{{ shipment.VoyageNumber }}</td>

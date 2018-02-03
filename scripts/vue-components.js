@@ -15,27 +15,31 @@ Vue.component('vue-accordion-component', {
             username: 'John',
             shipments: null,
             loading: false,
-            bookingData: [],
-            scheduleData: [],
+            shipmentData: [],
             jsonFromTextArea: ''
         }
     },
     methods: {
         collapseIn: function (index) {
-            return this.scheduleData[index].isOpen = true;
+            return this.shipmentData[index].isOpen = true;
         },
         getBookingStatus() {
-            return $.map(this.scheduleData, function (value, index) {
-                return value.BookingData.CarrierReferenceNumber !== ''
-
-                    ? value.bookingStatus = 'confirmed'
-                    : value.bookingStatus = 'rejected';
+            return $.map(this.shipmentData, function (value, index) {
+                console.log(value.rejected)
+                if ( value.rejected.message ) {
+                    value.bookingStatus = 'REJECTED';
+                } else if ( $.isEmptyObject(value.rejected) && value.confirmation.CarrierReferenceNumber ) {
+                    value.bookingStatus = 'CONFIRMED';
+                } else if ( $.isEmptyObject(value.rejected) && value.confirmation.CarrierReferenceNumber === '' ) {
+                    value.bookingStatus = 'PENDING' ;
+                }  
+                return value.bookingStatus;
             });
         }
     },
     computed: {
         helloMsg: function () {
-            return 'Hello, ' + this.name + '. You have ' + this.scheduleData.length + ' shipments.';
+            return 'Hello, ' + this.name + '. You have ' + this.shipmentData.length + ' shipments.';
         },
         bookingStatus: function (a) {
             // GRAB DATA FROM SHIPMENTS.JSON
@@ -47,26 +51,23 @@ Vue.component('vue-accordion-component', {
             // If deleted then CANCELLED
             // shipments[1]["confirmation"].hasOwnProperty( "ContainerReleaseNumber" )
             // shipments[1].keys("confirmation").length == 0;
-            return a.BookingData.CarrierReferenceNumber !== ''
-                ? a.bookingStatus = 'confirmed'
-                : a.bookingStatus = 'rejected';
+            // return a.confirmation.CarrierReferenceNumber !== ''
+            //     ? a.bookingStatus = 'confirmed'
+            //     : a.bookingStatus = 'rejected';
         }
     },
     watch: {
-        scheduleData: function(val) {
-            console.log('watching: ', val);
-            this.getBookingStatus();
-        }
+        // shipmentData: function(val) {
+        //     console.log('watching: ', val);
+        //     this.getBookingStatus();
+        // }
     },
     created: function () {
         var self = this;
-        $.when(
-            $.get( "API/shipments.json"),
-            $.get( "API/mock-schedule-data.json")
-        ).then(function( shipments, schedule ) {
-            self.bookingData.push(shipments[0]);
-            self.scheduleData.push(schedule[0].data);
-            self.scheduleData = extendObject(self.scheduleData[0], { isOpen: false, bookingStatus: 'rejected' });
+        $.get( "API/shipments.json").done(function( shipments ) {
+            console.log(shipments);
+            self.shipmentData.push(shipments.request);
+            self.shipmentData = extendObject(self.shipmentData[0], { isOpen: false, bookingStatus: 'rejected' });
         });
     },
     mounted: function () {
@@ -87,7 +88,7 @@ Vue.component('vue-accordion-component', {
             var newData = JSON.parse(this.jsonFromTextArea);
             $.extend({}, newData, { isOpen: false });
             console.log('new data: ', newData);
-            this.scheduleData.push(newData);
+            this.shipmentData.push(newData);
         }.bind(this))
     }
 });
@@ -99,7 +100,7 @@ Vue.component('vue-accordion-component', {
  * ----------------------
  * 1. PUT data  :: (ie) edit existing data within JSON array
  * To edit the existing data a .find() method will need to loop through the 
- * bookingData array and look at each items InternalReference.
+ * confirmation array and look at each items InternalReference.
  * If it matches, then update that object.
  * 
  * 2. POST data :: (ie) add new data to JSON array
