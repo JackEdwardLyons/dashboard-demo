@@ -13,19 +13,14 @@ Vue.component('vue-accordion-component', {
     data: function () {
         return {
             username: 'John',
-            shipments: null,
             loading: false,
             shipmentData: [],
             jsonFromTextArea: ''
         }
     },
     methods: {
-        collapseIn: function (index) {
-            return this.shipmentData[index].isOpen = true;
-        },
         getBookingStatus() {
             return $.map(this.shipmentData, function (value, index) {
-                console.log(value.rejected)
                 if ( value.rejected.message ) {
                     value.bookingStatus = 'REJECTED';
                 } else if ( $.isEmptyObject(value.rejected) && value.confirmation.CarrierReferenceNumber ) {
@@ -35,37 +30,47 @@ Vue.component('vue-accordion-component', {
                 }  
                 return value.bookingStatus;
             });
+        },
+        toggleShipmentData (id) {
+            this.shipmentData[id].isOpen = !this.shipmentData[id].isOpen
+        },
+        cancelBooking (id) {
+            this.shipmentData[id].isOpen = false;
+            var self = this;
+            swal({
+                title: "Cancel this booking?",
+                text: "Once cancelled, you will not be able to recover this booking",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+              })
+              .then((willDelete) => {
+                if (willDelete) {
+                  swal("Your booking has been cancelled.", {
+                    icon: "success",
+                });
+                  this.shipmentData[id].bookingStatus = 'CANCELLED';
+                } else {
+                  swal("Your booking remains.");
+                }
+            });
+            this.shipmentData[id].isOpen = false;
         }
     },
     computed: {
         helloMsg: function () {
             return 'Hello, ' + this.name + '. You have ' + this.shipmentData.length + ' shipments.';
-        },
-        bookingStatus: function (a) {
-            // GRAB DATA FROM SHIPMENTS.JSON
-            // default to REJECTED
-            // test to see if CONFIRMATION is empty
-            // if not empty -- status is CONFIRMED
-            // META DATA available to show on front end
-            // if confirmation is empty your in PENDING ... 
-            // If deleted then CANCELLED
-            // shipments[1]["confirmation"].hasOwnProperty( "ContainerReleaseNumber" )
-            // shipments[1].keys("confirmation").length == 0;
-            // return a.confirmation.CarrierReferenceNumber !== ''
-            //     ? a.bookingStatus = 'confirmed'
-            //     : a.bookingStatus = 'rejected';
         }
     },
     watch: {
-        // shipmentData: function(val) {
-        //     console.log('watching: ', val);
-        //     this.getBookingStatus();
-        // }
+        shipmentData: function(val) {
+            console.log('watching: ', val);
+            this.getBookingStatus();
+        }
     },
     created: function () {
         var self = this;
         $.get( "API/shipments.json").done(function( shipments ) {
-            console.log(shipments);
             self.shipmentData.push(shipments.request);
             self.shipmentData = extendObject(self.shipmentData[0], { isOpen: false, bookingStatus: 'rejected' });
         });
@@ -84,10 +89,9 @@ Vue.component('vue-accordion-component', {
         // booking status and isOpen click event
         // to both function.
         EventBus.$on('update-accordion-data', function (payload) {
-            this.jsonFromTextArea = payload;
-            var newData = JSON.parse(this.jsonFromTextArea);
+            this.jsonFromTextArea = JSON.parse(payload);
+            var newData = this.jsonFromTextArea;
             $.extend({}, newData, { isOpen: false });
-            console.log('new data: ', newData);
             this.shipmentData.push(newData);
         }.bind(this))
     }
@@ -114,7 +118,6 @@ Vue.component('vue-json-inputter-component', {
     template: '#vue-json-inputter-component',
     data: function () {
         return {
-            jsonOption: '',
             jsonData: ''
         }
     },

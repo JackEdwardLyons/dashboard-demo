@@ -21,11 +21,6 @@ table {
     cursor: pointer;
 }
 
-.hiddenRow:hover {
-    background: #FFF;
-    cursor: inherit;
-}
-
 .mt-2 {
     margin-top: 2em;
 }
