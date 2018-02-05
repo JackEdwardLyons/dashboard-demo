@@ -57,24 +57,31 @@ Vue.component('vue-accordion-component', {
             this.shipmentData[id].isOpen = false;
         }
     },
+
     computed: {
         helloMsg: function () {
             return 'Hello, ' + this.name + '. You have ' + this.shipmentData.length + ' shipments.';
         }
     },
-    watch: {
-        shipmentData: function(val) {
-            console.log('watching: ', val);
-            this.getBookingStatus();
-        }
-    },
-    created: function () {
-        var self = this;
+  
+    created() {
+        let vm = this;
         $.get( "API/shipments.json").done(function( shipments ) {
-            self.shipmentData.push(shipments.request);
-            self.shipmentData = extendObject(self.shipmentData[0], { isOpen: false, bookingStatus: 'rejected' });
+            vm.shipmentData = shipments.request.map(item => {
+                item.isOpen = false;
+                item.bookingStatus = 'rejected';
+                
+                return item;
+            });
         });
     },
+  
+    watch: {
+      shipmentData: function() {
+          this.getBookingStatus();
+      }
+    },
+  
     mounted: function () {
         this.loading = true;
         var self = this;
@@ -89,10 +96,9 @@ Vue.component('vue-accordion-component', {
         // booking status and isOpen click event
         // to both function.
         EventBus.$on('update-accordion-data', function (payload) {
-            this.jsonFromTextArea = JSON.parse(payload);
-            var newData = this.jsonFromTextArea;
-            $.extend({}, newData, { isOpen: false });
-            this.shipmentData.push(newData);
+            let newData = JSON.parse(payload);
+            newData.isOpen = false;           
+            self.shipmentData.push(newData);
         }.bind(this))
     }
 });

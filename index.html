@@ -173,7 +173,10 @@
                         </div>
                     </tr>
 
-                    <tbody v-for="(shipment, index) in shipmentData" class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
+                    <tbody v-for="(shipment, index) in shipmentData" v-bind:key="index"
+                           class="table table-condensed" 
+                           style="border-collapse:collapse;" 
+                           v-show="!loading">
                         
                         <tr @click="toggleShipmentData(index)" class="accordion-toggle table-hover">
                             <td class="text-success text-uppercase text-bold" 
