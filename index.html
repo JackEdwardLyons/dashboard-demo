@@ -215,10 +215,18 @@
                                                 <td>{{ shipment.VoyageNumber }}</td>
 
                                                 <th>Empty Pickup Address:</th>
-                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.EmptyPickUpLocation }}</td>
+                                                <td v-if="shipment.confirmation">
+                                                    <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.confirmation.EmptyPickUpLocation">
+                                                        {{ shipment.confirmation.EmptyPickUpLocation }}
+                                                    </a>
+                                                </td>
 
                                                 <th>Full Dropoff Location:</th>
-                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.FullDropOffLocation }}</td>
+                                                <td v-if="shipment.confirmation">
+                                                    <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.confirmation.FullDropOffLocation">
+                                                        {{ shipment.confirmation.FullDropOffLocation }}
+                                                    </a>
+                                                </td>
                                             </tr>
                                             <tr class="gold-bg" v-if="shipment.confirmation">
                                                 <th>Carrier Reference Number:</th>
@@ -238,7 +246,7 @@
                                                 <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate }}</td>
                                                 
                                                 <th>Forwarder:</th>
-                                                <td>{{ shipment.VoyageNumber }}</td>
+                                                <td>{{ shipment.ForwarderDetails.ForwarderName }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
