@@ -46,13 +46,11 @@ Vue.component('vue-accordion-component', {
               })
               .then((willDelete) => {
                 if (willDelete) {
-                  swal("Your booking has been cancelled.", {
-                    icon: "success",
-                });
-                  this.shipmentData[id].bookingStatus = 'CANCELLED';
-                } else {
-                  swal("Your booking remains.");
-                }
+                    swal("Your booking has been cancelled.", {
+                        icon: "success",
+                    });
+                    this.shipmentData[id].bookingStatus = 'CANCELLED';
+                } 
             });
             this.shipmentData[id].isOpen = false;
         }
