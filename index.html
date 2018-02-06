@@ -24,14 +24,14 @@
     <body class="sidebar-is-reduced">
         <header class="l-header">
             <div class="l-header__inner clearfix">
-                <div class="c-header-icon js-hamburger">
+                <div class="c-header-icon js-hamburger" title="Click here to expand the sidebar menu">
                     <div class="hamburger-toggle">
                         <span class="bar-top"></span>
                         <span class="bar-mid"></span>
                         <span class="bar-bot"></span>
                     </div>
                 </div>
-                <div class="c-header-icon has-dropdown">
+                <div class="c-header-icon has-dropdown" title="Notifications">
                     <span class="c-badge c-badge--header-icon animated shake">87</span>
                     <i class="fa fa-bell"></i>
                     <div class="c-dropdown c-dropdown--notifications">
@@ -43,11 +43,7 @@
                     <input class="c-search__input u-input" placeholder="Search..." type="text" />
                 </div>
                 <div class="header-icons-group">
-                    <div class="c-header-icon basket">
-                        <span class="c-badge c-badge--header-icon animated shake">12</span>
-                        <i class="fa fa-shopping-basket"></i>
-                    </div>
-                    <div class="c-header-icon logout">
+                    <div class="c-header-icon logout" title="Click here to log out.">
                         <i class="fa fa-power-off"></i>
                     </div>
                 </div>
@@ -60,49 +56,43 @@
             <div class="l-sidebar__content">
                 <nav class="c-menu js-menu">
                     <ul class="u-list">
-                        <li class="c-menu__item is-active" data-toggle="tooltip" title="Flights">
+                        <li class="c-menu__item is-active" data-toggle="tooltip" title="Dashboard">
                             <div class="c-menu__item__inner">
-                                <i class="fa fa-plane"></i>
+                                <i class="fa fa-area-chart" aria-hidden="true"></i>
                                 <div class="c-menu-item__title">
-                                    <span>Flights</span>
+                                    <span>Dashboard</span>
                                 </div>
                             </div>
                         </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Modules">
+                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="New Booking">
                             <div class="c-menu__item__inner">
-                                <i class="fa fa-puzzle-piece"></i>
+                                <i class="fa fa-ship" aria-hidden="true"></i>
                                 <div class="c-menu-item__title">
-                                    <span>Modules</span>
+                                    <span>New Booking</span>
                                 </div>
-                                <div class="c-menu-item__expand js-expand-submenu">
+                                <!-- <div class="c-menu-item__expand js-expand-submenu">
                                     <i class="fa fa-angle-down"></i>
-                                </div>
+                                </div> -->
                             </div>
-                            <ul class="c-menu__submenu u-list">
+                            <!-- <ul class="c-menu__submenu u-list">
                                 <li>Payments</li>
                                 <li>Maps</li>
                                 <li>Notifications</li>
-                            </ul>
+                            </ul> -->
                         </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Statistics">
-                            <div class="c-menu__item__inner">
-                                <i class="fa fa-bar-chart"></i>
-                                <div class="c-menu-item__title">
-                                    <span>Statistics</span>
+
+                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="My Rates">
+                                <div class="c-menu__item__inner">
+                                    <i class="fa fa-folder" aria-hidden="true"></i>
+                                    <div class="c-menu-item__title">
+                                        <span>My Rates</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                        <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Gifts">
-                            <div class="c-menu__item__inner">
-                                <i class="fa fa-gift"></i>
-                                <div class="c-menu-item__title">
-                                    <span>Gifts</span>
-                                </div>
-                            </div>
-                        </li>
+                            </li>
+
                         <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings">
                             <div class="c-menu__item__inner">
-                                <i class="fa fa-cogs"></i>
+                                <i class="fa fa-cogs" aria-hidden="true"></i>
                                 <div class="c-menu-item__title">
                                     <span>Settings</span>
                                 </div>
@@ -332,7 +322,7 @@
 
     <!-- jQuery, Bootstrap, Font Awesome -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
     <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
 
     <!-- Vue JS -->

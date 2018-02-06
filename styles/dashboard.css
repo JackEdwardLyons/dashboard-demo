@@ -120,10 +120,6 @@ h3 {
     width: 12px;
 }
 
-.hamburger-toggle.is-opened {
-    left: 100%;
-}
-
 .hamburger-toggle.is-opened [class*='bar-'] {
     background: #102c58;
 }
