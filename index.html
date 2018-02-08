@@ -9,7 +9,6 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-    <link rel="stylesheet" href="./styles/daterangepicker.css">
 
     <style class="cp-pen-styles">
         @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
@@ -20,6 +19,8 @@
     <!-- Vue Bootstrap CSS -->
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
     <link rel="stylesheet" href="./styles/vue-accordion-component.css">
+    <link rel="stylesheet" href="./styles/vue-shipment-booking-component.css">
+    
     <link rel="stylesheet" href="./styles/custom-styles.css">
 
 </head>
@@ -128,7 +129,7 @@
 
     <!-- The Vue Shipment Booking Component -->
     <template id="vue-shipment-booking-component">
-        <section class="col-sm-12 col-md-12 col-lg-12">
+        <section class="bg-light-grey">
             <span class="validate fade " data-field="equipment"></span>
             
             <div class="collapse navbar-collapse bg-color-grey">
@@ -272,40 +273,6 @@
                         </li>
                     </ul>
                 </section>
-
-                <section>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"> Recent Searches
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="5C262A53-BAE4-4FDD-B3E1D6055A3E08A7">SGSIN&nbsp;
-                                        <i class="fa fa-long-arrow-right"></i>&nbsp;MYPKG</a>
-                                </li>
-                                <li>
-                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="8C45A016-950E-4139-81BE1EF460944942">AUSYD&nbsp;
-                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE</a>
-                                </li>
-                                <li>
-                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="FD8E2E0B-55FB-41FA-827401B5288FBDF9">CNSHA&nbsp;
-                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE</a>
-                                </li>
-                                <li>
-                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="EC366C1F-33A0-43A8-B90B1A5E5C97824F">CNSHA&nbsp;
-                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE</a>
-                                </li>
-                                <li>
-                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="E42C0492-A844-4FB5-9C3910EBB7C31E78">CNSHA&nbsp;
-                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-
             </div>
 
             <fieldset>
@@ -336,6 +303,8 @@
                             class="form-control validatable" form="void" type="text">
                     </label>
                     <span class="validate fade " data-field="start_date"></span>
+
+                    
                 </section>
             </fieldset>
         </section>
@@ -547,20 +516,26 @@
         crossorigin="anonymous"></script>
     <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
     <!-- Babel Standalone -->
-    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <!-- Date Range Picker -->
-    <script src="./scripts/daterangepicker.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <!-- Vue Sweet Alert -->
-    <script src="https://unpkg.com/vue-swal" type="text/babel"></script>
+    <script src="https://unpkg.com/vue-swal"></script>
     <!-- Vue Components -->
-    <script src="./scripts/vue-components.js" type="text/babel"></script>
+    <script src="./scripts/vue-components.js"></script>
 
     <!-- Custom JS -->
     <script src="./scripts/scripts.js" type="text/babel"></script>
+
+    <script>
+    $('input[name="validity_range"]').daterangepicker();
+    
+    </script>
 </body>
 
 </html>
