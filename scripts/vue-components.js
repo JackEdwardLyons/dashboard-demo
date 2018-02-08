@@ -13,8 +13,19 @@ Vue.component('vue-shipment-booking-component', {
     template: '#vue-shipment-booking-component',
     data: function () {
         return {
-
+            qty_20G0: 0,
+            qty_40G0: 0,
+            qty_45G0: 0
         }
+    },
+    methods: {
+        updateContainerQty: function (container, qty) {
+            console.log(container, qty);
+            this[container] = qty;
+        }
+    },
+    created: function () {
+        console.log( this.$refs );
     }
 });
 

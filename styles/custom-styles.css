@@ -1,3 +1,12 @@
+/**
+ * Explorate Color Palette
+ * #112c41 - Dark Blue 
+ * #107070 - Green
+ * #9dcabb - Lime Green
+ * #d2d369 - Sand
+ * #e69b79 - Salmon
+ **/
+
 .json-textarea {
     font-family: monospace;
     white-space: pre;
@@ -7,10 +16,22 @@
     background: #e1e1e1;
 }
 
+.text-navy {
+    color: navy;
+}
+
 .flex {
     display: flex;
 }
 
+.mt-10 {
+    margin-top: 10px;
+}
+/*  naving convention will change.. this isn't consistent */
 .mb-2 {
     margin-bottom: 2em;
+}
+
+.pos-rel {
+    position: relative;
 }

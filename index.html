@@ -130,180 +130,93 @@
 
     <!-- The Vue Shipment Booking Component -->
     <template id="vue-shipment-booking-component">
-        <section class="light-grey-bg flex mb-2 shipment-booking-component">
-            <span class="validate fade " data-field="equipment"></span>
-            <fieldset class="row">
-                <section class="col-sm-2">
-                    <label class="label">Date Range</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-calendar"></i>
-                        <input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date"
-                            class="form-control validatable hidden" form="void" type="text">
-                    </label>
-                    <span class="validate fade " data-field="start_date"></span>
-                </section>
-                <section class="col-sm-2">
-                    <label class="label">Origin Port</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-arrow-up"></i>
-                        <input form="booking_form" placeholder="Port of Loading, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
-                            data-port="origin" data-validate="port_of_loading" autocomplete="off" type="text">
-                    </label>
-                    <span class="validate fade required in" data-field="port_of_loading"></span>
-                </section>
-                <section class="col-sm-2">
-                    <label class="label">Destination Port</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-arrow-down"></i>
-                        <input form="booking_form" placeholder="Port of Discharge, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
-                            data-port="destination" data-validate="port_of_discharge" autocomplete="off" type="text">
-                    </label>
-                    <span class="validate fade " data-field="port_of_discharge"></span>
-                </section>
-            </fieldset>
-            
-            <div class="collapse navbar-collapse bg-color-grey">
-                <section>
-                    <ul class="nav navbar-nav">
-                        <li class="dropdown">
-                            <span id="1-20G0-qty-badge" class="badge eqt-badge hide">0</span>
-                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                                20'&nbsp;GP
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu eq-select" name="q-20G0">
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="0" data-step="1" href="javascript:void(0);">0&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="1" data-step="1" href="javascript:void(0);">1&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="2" data-step="1" href="javascript:void(0);">2&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="3" data-step="1" href="javascript:void(0);">3&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="4" data-step="1" href="javascript:void(0);">4&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="5" data-step="1" href="javascript:void(0);">5&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="6" data-step="1" href="javascript:void(0);">6&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="7" data-step="1" href="javascript:void(0);">7&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="8" data-step="1" href="javascript:void(0);">8&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="9" data-step="1" href="javascript:void(0);">9&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="20G0" data-qty="10" data-step="1" href="javascript:void(0);">10&nbsp;</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <span id="1-42G0-qty-badge" class="badge eqt-badge hide">0</span>
-                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                                40'&nbsp;GP
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu eq-select" name="q-42G0">
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="0" data-step="1" href="javascript:void(0);">0&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="1" data-step="1" href="javascript:void(0);">1&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="2" data-step="1" href="javascript:void(0);">2&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="3" data-step="1" href="javascript:void(0);">3&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="4" data-step="1" href="javascript:void(0);">4&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="5" data-step="1" href="javascript:void(0);">5&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="6" data-step="1" href="javascript:void(0);">6&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="7" data-step="1" href="javascript:void(0);">7&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="8" data-step="1" href="javascript:void(0);">8&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="9" data-step="1" href="javascript:void(0);">9&nbsp;</a>
-                                </li>
-                                <li>
-                                    <a class="eq-qty" data-eq="42G0" data-qty="10" data-step="1" href="javascript:void(0);">10&nbsp;</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="dropdown">
-                            <span id="1-45G0-qty-badge" class="badge eqt-badge hide">0</span>
-                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                                40'&nbsp;HC
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu eq-select" name="q-45G0">
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="0" data-step="1" href="javascript:void(0);">0&nbsp;</a>
-                                </li>
+       <section class="shipment-booking-component">
+            <div class="light-grey-bg flex mb-2">
+                <ul class="nav navbar-nav flex">
 
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="1" data-step="1" href="javascript:void(0);">1&nbsp;</a>
-                                </li>
+                    <li>
+                        <span id="date-view-badge" class="date-view badge eqt-badge"></span>
+                        <a href="#">
+                            <label class="input" title="Booking Date Range">
+                                <i class="icon-prepend fa fa-calendar"></i>
+                                <input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date"
+                                    class="form-control validatable hidden" form="void" type="text">
+                            </label>
+                            <span class="validate fade " data-field="start_date"></span>
+                        </a>
+                    </li>
 
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="2" data-step="1" href="javascript:void(0);">2&nbsp;</a>
-                                </li>
+                    <!-- Port Pairs -->
+                    <li>
+                        <span id="origin-port-badge" class="port-view badge eqt-badge">SYDNEY</span>
+                        <a href="#">
+                            <label class="input" title="Origin Port">
+                                <i class="icon-prepend fa fa-arrow-up"></i>
+                                <input form="booking_form" placeholder="Port of Loading, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
+                                    data-port="origin" data-validate="port_of_loading" autocomplete="off" type="text">
+                            </label>
+                            <span class="validate fade required in" data-field="port_of_loading"></span>
+                        </a>
+                    </li>
 
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="3" data-step="1" href="javascript:void(0);">3&nbsp;</a>
-                                </li>
+                    <li>
+                        <span id="dest-port-badge" class="port-view badge eqt-badge">CHINA</span>
+                        <a href="#">
+                            <label class="input" title="Destination Port">
+                                <i class="icon-prepend fa fa-arrow-down"></i>
+                                <input form="booking_form" placeholder="Port of Discharge, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
+                                    data-port="destination" data-validate="port_of_discharge" autocomplete="off" type="text">
+                            </label>
+                            <span class="validate fade " data-field="port_of_discharge"></span>
+                        </a>
+                    </li>
 
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="4" data-step="1" href="javascript:void(0);">4&nbsp;</a>
-                                </li>
 
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="5" data-step="1" href="javascript:void(0);">5&nbsp;</a>
-                                </li>
 
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="6" data-step="1" href="javascript:void(0);">6&nbsp;</a>
-                                </li>
-
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="7" data-step="1" href="javascript:void(0);">7&nbsp;</a>
-                                </li>
-
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="8" data-step="1" href="javascript:void(0);">8&nbsp;</a>
-                                </li>
-
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="9" data-step="1" href="javascript:void(0);">9&nbsp;</a>
-                                </li>
-
-                                <li>
-                                    <a class="eq-qty" data-eq="45G0" data-qty="10" data-step="1" href="javascript:void(0);">10&nbsp;</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </section>
-            </div>
+                    <!-- Equipment Numbers -->
+                    <li class="dropdown pos-rel">
+                        <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span>
+                        <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            20'&nbsp;GP
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu eq-select" name="q-20G0">
+                            <li v-for="(item, index) in 10">
+                                <a :value="qty_20G0" @click="updateContainerQty('qty_20G0', index)" class="eq-qty" data-eq="20G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <span :value="qty_40G0" v-show="qty_40G0 > 0" id="1-42G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_40G0 }}</span>
+                        <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            40'&nbsp;GP
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu eq-select" name="q-42G0">
+                            <li v-for="(item, index) in 10">
+                                <a :value="qty_40G0" @click="updateContainerQty('qty_40G0', index)" class="eq-qty" data-eq="42G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <span :value="qty_45G0" v-show="qty_45G0 > 0" id="1-45G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_45G0 }}</span>
+                        <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            45'&nbsp;HC
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu eq-select" name="q-45G0">
+                            <li v-for="(item, index) in 10">
+                                <a :value="qty_45G0" @click="updateContainerQty('qty_45G0', index)"  class="eq-qty" data-eq="45G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}&nbsp;</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <button onclick="alert('This will show the data to be posted in JSON format.')" class="btn btn-success mt-10">
+                            Book Now
+                        </button>
+                    </li>
+                </ul>
+            </div><!-- .light-grey-bg -->
         </section>
 
 
@@ -313,7 +226,7 @@
     <!-- The Vue Accordion Component Template -->
     <template id="vue-accordion-component">
         <div class="">
-            
+
             <div class="panel panel-default">
 
                 <div class="panel-heading">
@@ -519,7 +432,7 @@
     <!-- Date Range Picker -->
     <script type="text/javascript" src="./scripts/daterangepicker.js"></script>
     <link rel="stylesheet" type="text/css" href="./styles/date-range-picker.css" />
-    
+
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <!-- Vue Sweet Alert -->
@@ -527,9 +440,9 @@
     <!-- Vue Components -->
     <script src="./scripts/vue-components.js"></script>
     <!-- Custom JS -->
-    <script src="./scripts/scripts.js" type="text/babel"></script>
+    <script src="./scripts/scripts.js"></script>
 
-    
+
 </body>
 
 </html>

@@ -10,12 +10,7 @@ th {
     vertical-align: top !important;
 }
 
-table {
-    
-}
-
 /* Jack's CSS */
-
 .table-hover:hover {
     background: #f5f5f5;
     cursor: pointer;
@@ -43,7 +38,7 @@ table {
 }
 
 .gold-bg {
-    background: #ffb744 !important;
+    background: #d2d369 !important;
 }
 
 /* Vue cloak hides braces until instance has loaded */

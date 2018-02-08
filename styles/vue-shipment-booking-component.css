@@ -5,3 +5,23 @@
     border-radius: 4px;
     padding: 0.5em 1em;
 }
+
+.date-view,
+.port-view,
+.equipment-view {
+    background: #107070;
+    color: #fff;
+    font-weight: normal;
+    height: 18px;
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.date-view {
+    left: 0;
+    top: -5px;
+}

@@ -43,9 +43,19 @@ var Dashboard = function () {
 Dashboard.init();
 
 /* -------------------- *\
-    Datepicker
+    jQuery Stuff
 \* -------------------- */
 $('input[name="validity_range"]').daterangepicker();
+$('[data-toggle="popover"]').popover()
+
+
+$('.applyBtn').on('click', function (e) {
+    
+    var startDate = $('[name="daterangepicker_start"]').val();
+    var endDate = $('[name="daterangepicker_end"]').val();
+    console.log('start: ', startDate, 'end: ', endDate);
+    $('#date-view-badge').show().text(startDate + ' - ' + endDate);
+})
 
 
 /* -------------------- *\

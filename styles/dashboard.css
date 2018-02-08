@@ -270,7 +270,7 @@ h3 {
 
 .l-sidebar {
     width: 70px;
-    position: absolute;
+    position: fixed;
     z-index: 10;
     left: 0;
     top: 0;
