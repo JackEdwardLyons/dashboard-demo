@@ -1,0 +1,238 @@
+// REQUEST
+// {
+// 	"port_of_loading":"CNSHA"
+// 	,"port_of_discharge":"HKHKG"
+// 	,"start_date":"2018-03-08"
+// 	,"end_date":"2018-04-19"
+// 	,"20G0":"1"
+// 	,"42G0":"0"
+// 	,"45G0":"0"
+// }
+
+// RESPONSE
+{
+	"request": {
+		"origin": "CNSHA",
+		"enddate": "April, 19 2018 00:00:00 +1000",
+		"startdate": "March, 08 2018 00:00:00 +1000",
+		"destination": "HKHKG"
+	},
+	"header": {
+		"Errors": [],
+		"Timestamp": 1517988308,
+		"Status": "Complete",
+		"TransactionType": "Schedules",
+		"ScheduleCount": 15
+	},
+	"schedules": [{
+		"schedule_id": 402,
+		"voyage_number": "803E",
+		"carrier_scac": "CCNR",
+		"vessel_imo": "9294408",
+		"vessel_name": "MAERSK LAUNCESTON",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 25 2018 00:00:00 +1000",
+		"destination_arrives": "March, 31 2018 00:00:00 +1000",
+		"transit_time": 6,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 403,
+		"voyage_number": "812E",
+		"carrier_scac": "CCNR",
+		"vessel_imo": "9706190",
+		"vessel_name": "CAPE AKRITAS",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 21 2018 00:00:00 +1000",
+		"destination_arrives": "March, 25 2018 00:00:00 +1000",
+		"transit_time": 5,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 404,
+		"voyage_number": "717E,803E",
+		"carrier_scac": "CCNR",
+		"vessel_imo": "9623843",
+		"vessel_name": "HAMMONIA VIRGINIA",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 18 2018 00:00:00 +1000",
+		"destination_arrives": "March, 24 2018 00:00:00 +1000",
+		"transit_time": 6,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 405,
+		"voyage_number": "811E",
+		"carrier_scac": "CCNR",
+		"vessel_imo": "9467457",
+		"vessel_name": "MSC KATIE",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 14 2018 00:00:00 +1000",
+		"destination_arrives": "March, 18 2018 00:00:00 +1000",
+		"transit_time": 5,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 406,
+		"voyage_number": "715E,803E",
+		"carrier_scac": "CCNR",
+		"vessel_imo": "9624275",
+		"vessel_name": "MAERSK ARAS",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 11 2018 00:00:00 +1000",
+		"destination_arrives": "March, 17 2018 00:00:00 +1000",
+		"transit_time": 6,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 407,
+		"voyage_number": "0005",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9736107",
+		"vessel_name": "TIHAMA",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "April, 03 2018 00:00:00 +1000",
+		"destination_arrives": "April, 06 2018 00:00:00 +1000",
+		"transit_time": 3,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 408,
+		"voyage_number": "0046",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9487524",
+		"vessel_name": "NYK FUTAGO",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "April, 02 2018 00:00:00 +1000",
+		"destination_arrives": "April, 04 2018 00:00:00 +1000",
+		"transit_time": 2,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 409,
+		"voyage_number": "0005",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9769271",
+		"vessel_name": "MOL TRIUMPH",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 27 2018 00:00:00 +1000",
+		"destination_arrives": "March, 30 2018 00:00:00 +1000",
+		"transit_time": 3,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 410,
+		"voyage_number": "0050",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9400198",
+		"vessel_name": "JPO TUCANA",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 26 2018 00:00:00 +1000",
+		"destination_arrives": "March, 28 2018 00:00:00 +1000",
+		"transit_time": 2,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 411,
+		"voyage_number": "0006",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9731925",
+		"vessel_name": "COSCO SHIPPING VOLGA",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 24 2018 00:00:00 +1000",
+		"destination_arrives": "March, 29 2018 00:00:00 +1000",
+		"transit_time": 4,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 412,
+		"voyage_number": "0004",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9708851",
+		"vessel_name": "BARZAN",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 20 2018 00:00:00 +1000",
+		"destination_arrives": "March, 23 2018 00:00:00 +1000",
+		"transit_time": 3,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 413,
+		"voyage_number": "0509",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9620607",
+		"vessel_name": "CAP CLEVELAND",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 19 2018 00:00:00 +1000",
+		"destination_arrives": "March, 21 2018 00:00:00 +1000",
+		"transit_time": 2,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 414,
+		"voyage_number": "0005",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9999999",
+		"vessel_name": "COSCO SHIPPING THAMES",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 17 2018 00:00:00 +1000",
+		"destination_arrives": "March, 22 2018 00:00:00 +1000",
+		"transit_time": 4,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 415,
+		"voyage_number": "0030",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9484352",
+		"vessel_name": "COSCO JEDDAH",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 13 2018 00:00:00 +1000",
+		"destination_arrives": "March, 17 2018 00:00:00 +1000",
+		"transit_time": 4,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}, {
+		"schedule_id": 416,
+		"voyage_number": "0021",
+		"carrier_scac": "ONEY",
+		"vessel_imo": "9628154",
+		"vessel_name": "VALOR",
+		"origin": "CNSHA",
+		"destination": "HKHKG",
+		"origin_departs": "March, 10 2018 00:00:00 +1000",
+		"destination_arrives": "March, 15 2018 00:00:00 +1000",
+		"transit_time": 4,
+		"created": "February, 07 2018 17:25:11 +1000",
+		"hash": "5DEF74709FFD446AFB3077E900E91F27",
+		"correlation_id": "F34FAC958FC01F27AE1517988333606"
+	}]
+}

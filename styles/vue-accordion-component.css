@@ -43,7 +43,7 @@ table {
 }
 
 .gold-bg {
-    background: gold !important;
+    background: #ffb744 !important;
 }
 
 /* Vue cloak hides braces until instance has loaded */

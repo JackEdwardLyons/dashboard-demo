@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html class=''>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name="robots" content="noindex">
+
+    <!-- Dashboard CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
+    <style class="cp-pen-styles">
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+    </style>
+
+    <!-- jQuery, Bootstrap, Font Awesome -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <script src="./schedule-data.js"></script>
+    <script src="./jquery-gantt-explorate.js"></script>
+
+    <link rel="stylesheet" href="./jquery-gantt-explorate.css">
+
+</head>
+
+
+
+<style>
+    .eqt-badge { 
+        position: absolute;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-sm-12">
+
+
+                <span class="validate fade " data-field="equipment"></span>
+                <div class="collapse navbar-collapse bg-color-grey">
+                   
+                    <section>
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <span id="2-20G0-qty-badge" class="badge eqt-badge">0</span>
+                                <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);"> 20'&nbsp;GP
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu eq-select" name="q-20G0">
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="0" data-step="2" href="javascript:void(0);">0&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="1" data-step="2" href="javascript:void(0);">1&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="2" data-step="2" href="javascript:void(0);">2&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="3" data-step="2" href="javascript:void(0);">3&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="4" data-step="2" href="javascript:void(0);">4&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="5" data-step="2" href="javascript:void(0);">5&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="6" data-step="2" href="javascript:void(0);">6&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="7" data-step="2" href="javascript:void(0);">7&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="8" data-step="2" href="javascript:void(0);">8&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="9" data-step="2" href="javascript:void(0);">9&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="20G0" data-qty="10" data-step="2" href="javascript:void(0);">10&nbsp;</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <span id="2-42G0-qty-badge" class="badge eqt-badge">0</span>
+                                <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);"> 40'&nbsp;GP
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu eq-select" name="q-42G0">
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="0" data-step="2" href="javascript:void(0);">0&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="1" data-step="2" href="javascript:void(0);">1&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="2" data-step="2" href="javascript:void(0);">2&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="3" data-step="2" href="javascript:void(0);">3&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="4" data-step="2" href="javascript:void(0);">4&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="5" data-step="2" href="javascript:void(0);">5&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="6" data-step="2" href="javascript:void(0);">6&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="7" data-step="2" href="javascript:void(0);">7&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="8" data-step="2" href="javascript:void(0);">8&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="9" data-step="2" href="javascript:void(0);">9&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="42G0" data-qty="10" data-step="2" href="javascript:void(0);">10&nbsp;</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <span id="2-45G0-qty-badge" class="badge eqt-badge">0</span>
+                                <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);"> 40'&nbsp;HC
+                                    <b class="caret"></b>
+                                </a>
+                                <ul class="dropdown-menu eq-select" name="q-45G0">
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="0" data-step="2" href="javascript:void(0);">0&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="1" data-step="2" href="javascript:void(0);">1&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="2" data-step="2" href="javascript:void(0);">2&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="3" data-step="2" href="javascript:void(0);">3&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="4" data-step="2" href="javascript:void(0);">4&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="5" data-step="2" href="javascript:void(0);">5&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="6" data-step="2" href="javascript:void(0);">6&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="7" data-step="2" href="javascript:void(0);">7&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="8" data-step="2" href="javascript:void(0);">8&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="9" data-step="2" href="javascript:void(0);">9&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a class="eq-qty" data-eq="45G0" data-qty="10" data-step="2" href="javascript:void(0);">10&nbsp;</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <span class="message-schedule-result">
+                </span>
+                <div class="col-md-12" id="carrier-rates">
+                    <br clear="all" />
+                    <ul id="carrier-tabs" class="nav nav-tabs" role="navigation">
+                        <li class="carrier-tab active" role="presentation" data-pane_id="ZIMU">
+                            <a href="#ZIMU" aria-controls="tab-content" role="tab" data-toggle="tab">
+                                <img src='assets/img/carriers/zimu.png' />
+                                
+                                <button class="btn btn-zimu" type="button">$750.00
+                                    <span id="frt-zimu"></span>
+                                </button>
+                            </a>
+                        </li>
+                        <!--<h4><span class="label label-zimu">$750.00</span></h4>-->
+                        <li class="carrier-tab " role="presentation" data-pane_id="PABV">
+                            <a href="#PABV" aria-controls="tab-content" role="tab" data-toggle="tab">
+                                <img src='assets/img/carriers/pabv.png' />
+                                
+                                <button class="btn btn-pabv" type="button">$750.00
+                                    <span id="frt-pabv"></span>
+                                </button>
+                            </a>
+                        </li>
+                        <!--<h4><span class="label label-pabv">$750.00</span></h4>-->
+                        <li class="carrier-tab " role="presentation" data-pane_id="All">
+                            <a href="#All" aria-controls="tab-content" role="tab" data-toggle="tab">
+                                <button class="btn btn-all" type="button">Show All
+                                    <span id="frt-all"></span>
+                                </button>
+                            </a>
+                        </li>
+                        <!--<h4><span class="label label-all">Show All</span></h4>-->
+                    </ul>
+                    <!--*****************************************************************//
+/////// MAIN CONTROLS FOR ROLE/INCOTERMS/CURRENCY HARMONIZATION /////
+//*****************************************************************-->
+                    <div id="tbl-rates-controls"></div>
+                    <!--*****************************************************************//
+/////////////////////////// FREIGHT CHARGES //////////////////////////
+//*********************************************************************-->
+                    <div id="tbl-freight-charges" class="fade "></div>
+                    <!--*****************************************************************//
+/////////////////////////// SURCHARGES ///////////////////////////////
+//*********************************************************************-->
+                    <div id="tbl-surcharges" class="fade "></div>
+                    <!--*****************************************************************//
+/////////////////////////// TAB PANES CONTENT //////////////////////////
+//*********************************************************************-->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active fade " id="ZIMU">
+                            <br />
+                            <i class="text-muted fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade " id="PABV">
+                            <br />
+                            <i class="text-muted fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                        <div role="tabpanel" class="tab-pane fade " id="All">
+                            <br />
+                            <i class="text-muted fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .col-m-12 -->
+        </div>
+        <!-- .row -->
+    </div>
+    <!-- .container -->
+
+    <script>
+     
+            
+           var paneText = $('.carrier-tab').each(function( index ) {
+               var paneText = $(this).data('pane_id');
+               $(this).children().append(paneText);
+           });
+           
+    </script>
+
+</body>
+
+</html>

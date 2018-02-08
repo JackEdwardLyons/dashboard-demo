@@ -4,16 +4,18 @@
 <head>
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
-    
+
     <!-- Dashboard CSS -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-    <style class="cp-pen-styles">@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");</style>
+    <style class="cp-pen-styles">
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
+    </style>
     <link rel="stylesheet" href="./styles/dashboard.css">
 
     <!-- Vue Bootstrap CSS -->
-    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>
+    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
     <link rel="stylesheet" href="./styles/vue-accordion-component.css">
     <link rel="stylesheet" href="./styles/custom-styles.css">
 
@@ -51,7 +53,10 @@
         </header>
         <div class="l-sidebar">
             <div class="logo">
-                <div class="logo__txt">D</div>
+                <div class="logo__txt">
+                    X
+
+                </div>
             </div>
             <div class="l-sidebar__content">
                 <nav class="c-menu js-menu">
@@ -82,13 +87,13 @@
                         </li>
 
                         <li class="c-menu__item has-submenu" data-toggle="tooltip" title="My Rates">
-                                <div class="c-menu__item__inner">
-                                    <i class="fa fa-folder" aria-hidden="true"></i>
-                                    <div class="c-menu-item__title">
-                                        <span>My Rates</span>
-                                    </div>
+                            <div class="c-menu__item__inner">
+                                <i class="fa fa-folder" aria-hidden="true"></i>
+                                <div class="c-menu-item__title">
+                                    <span>My Rates</span>
                                 </div>
-                            </li>
+                            </div>
+                        </li>
 
                         <li class="c-menu__item has-submenu" data-toggle="tooltip" title="Settings">
                             <div class="c-menu__item__inner">
@@ -108,11 +113,232 @@
     <main class="l-main content-wrapper content-wrapper--with-bg" id="vue-app" v-cloak>
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
+                <vue-shipment-booking-component></vue-shipment-booking-component>
                 <vue-accordion-component></vue-accordion-component>
                 <vue-json-inputter-component></vue-json-inputter-component>
             </div>
         </div>
     </main>
+
+
+
+
+    <!-- The Vue Shipment Booking Component -->
+    <template id="vue-shipment-booking-component">
+        <section class="col-sm-12 col-md-12 col-lg-12">
+            <span class="validate fade " data-field="equipment"></span>
+            
+            <div class="collapse navbar-collapse bg-color-grey">
+                <section>
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <span id="1-20G0-qty-badge" class="badge eqt-badge hide">0</span>
+                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                20'&nbsp;GP
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="q-20G0">
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="0" data-step="1" href="javascript:void(0);">0&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="1" data-step="1" href="javascript:void(0);">1&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="2" data-step="1" href="javascript:void(0);">2&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="3" data-step="1" href="javascript:void(0);">3&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="4" data-step="1" href="javascript:void(0);">4&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="5" data-step="1" href="javascript:void(0);">5&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="6" data-step="1" href="javascript:void(0);">6&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="7" data-step="1" href="javascript:void(0);">7&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="8" data-step="1" href="javascript:void(0);">8&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="9" data-step="1" href="javascript:void(0);">9&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="20G0" data-qty="10" data-step="1" href="javascript:void(0);">10&nbsp;</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <span id="1-42G0-qty-badge" class="badge eqt-badge hide">0</span>
+                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                40'&nbsp;GP
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="q-42G0">
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="0" data-step="1" href="javascript:void(0);">0&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="1" data-step="1" href="javascript:void(0);">1&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="2" data-step="1" href="javascript:void(0);">2&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="3" data-step="1" href="javascript:void(0);">3&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="4" data-step="1" href="javascript:void(0);">4&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="5" data-step="1" href="javascript:void(0);">5&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="6" data-step="1" href="javascript:void(0);">6&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="7" data-step="1" href="javascript:void(0);">7&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="8" data-step="1" href="javascript:void(0);">8&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="9" data-step="1" href="javascript:void(0);">9&nbsp;</a>
+                                </li>
+                                <li>
+                                    <a class="eq-qty" data-eq="42G0" data-qty="10" data-step="1" href="javascript:void(0);">10&nbsp;</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <span id="1-45G0-qty-badge" class="badge eqt-badge hide">0</span>
+                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                40'&nbsp;HC
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="q-45G0">
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="0" data-step="1" href="javascript:void(0);">0&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="1" data-step="1" href="javascript:void(0);">1&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="2" data-step="1" href="javascript:void(0);">2&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="3" data-step="1" href="javascript:void(0);">3&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="4" data-step="1" href="javascript:void(0);">4&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="5" data-step="1" href="javascript:void(0);">5&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="6" data-step="1" href="javascript:void(0);">6&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="7" data-step="1" href="javascript:void(0);">7&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="8" data-step="1" href="javascript:void(0);">8&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="9" data-step="1" href="javascript:void(0);">9&nbsp;</a>
+                                </li>
+
+                                <li>
+                                    <a class="eq-qty" data-eq="45G0" data-qty="10" data-step="1" href="javascript:void(0);">10&nbsp;</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <section>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0);"> Recent Searches
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="5C262A53-BAE4-4FDD-B3E1D6055A3E08A7">SGSIN&nbsp;
+                                        <i class="fa fa-long-arrow-right"></i>&nbsp;MYPKG</a>
+                                </li>
+                                <li>
+                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="8C45A016-950E-4139-81BE1EF460944942">AUSYD&nbsp;
+                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE</a>
+                                </li>
+                                <li>
+                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="FD8E2E0B-55FB-41FA-827401B5288FBDF9">CNSHA&nbsp;
+                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE</a>
+                                </li>
+                                <li>
+                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="EC366C1F-33A0-43A8-B90B1A5E5C97824F">CNSHA&nbsp;
+                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE</a>
+                                </li>
+                                <li>
+                                    <a class="scheduled-recent" href="javascript:void(0);" data-bid="E42C0492-A844-4FB5-9C3910EBB7C31E78">CNSHA&nbsp;
+                                        <i class="fa fa-long-arrow-right"></i>&nbsp;AUBNE
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+            </div>
+
+            <fieldset>
+                <section class="col col-3">
+                    <label class="label">Origin Port</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-arrow-up"></i>
+                        <input form="booking_form" placeholder="Port of Loading, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable"
+                            data-port="origin" data-validate="port_of_loading" autocomplete="off" type="text">
+                    </label>
+                    <span class="validate fade required in" data-field="port_of_loading">
+                        <i class="fa fa-exclamation-triangle"></i>&nbsp;Required</span>
+                </section>
+                <section class="col col-3">
+                    <label class="label">Destination Port</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-arrow-down"></i>
+                        <input form="booking_form" placeholder="Port of Discharge, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable"
+                            data-port="destination" data-validate="port_of_discharge" autocomplete="off" type="text">
+                    </label>
+                    <span class="validate fade " data-field="port_of_discharge"></span>
+                </section>
+                <section class="col col-3">
+                    <label class="label">Date Range</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-calendar"></i>
+                        <input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date"
+                            class="form-control validatable" form="void" type="text">
+                    </label>
+                    <span class="validate fade " data-field="start_date"></span>
+                </section>
+            </fieldset>
+        </section>
+
+
+    </template>
 
 
     <!-- The Vue Accordion Component Template -->
@@ -163,19 +389,15 @@
                         </div>
                     </tr>
 
-                    <tbody v-for="(shipment, index) in shipmentData" v-bind:key="index"
-                           class="table table-condensed" 
-                           style="border-collapse:collapse;" 
-                           v-show="!loading">
-                        
+                    <tbody v-for="(shipment, index) in shipmentData" v-bind:key="index" class="table table-condensed" style="border-collapse:collapse;"
+                        v-show="!loading">
+
                         <tr @click="toggleShipmentData(index)" class="accordion-toggle table-hover">
-                            <td class="text-success text-uppercase text-bold" 
-                                :class="{ 
+                            <td class="text-success text-uppercase text-bold" :class="{ 
                                     'pending-status':   shipment.bookingStatus === 'PENDING', 
                                     'confirmed-status': shipment.bookingStatus === 'CONFIRMED',
                                     'rejected-status':  shipment.bookingStatus === 'REJECTED' || shipment.bookingStatus === 'CANCELLED',
-                                }"
-                            >
+                                }">
                                 {{ shipment.bookingStatus }}
                             </td>
                             <td>{{ shipment.InternalReference }}</td>
@@ -189,10 +411,7 @@
                             <td>{{ shipment.EquipmentDetails.length }}</td>
                             <td>
                                 <span class="pull-left glyphicon glyphicon-download-alt"></span>
-                                <span @click.stop="cancelBooking(index)" 
-                                      class=" pull-right glyphicon glyphicon-remove-circle"
-                                      v-show="shipment.bookingStatus !== 'CANCELLED'"
-                                ></span>
+                                <span @click.stop="cancelBooking(index)" class=" pull-right glyphicon glyphicon-remove-circle" v-show="shipment.bookingStatus !== 'CANCELLED'"></span>
                             </td>
                         </tr>
                         <tr>
@@ -224,7 +443,7 @@
 
                                                 <th>Earliest Empty Pickup:</th>
                                                 <td>{{ shipment.confirmation.EarliestEmptyPickUpDate }}</td>
-                                                
+
                                                 <th>Earliest Full Dropoff:</th>
                                                 <td>{{ shipment.confirmation.EarliestFullDropOff }}</td>
                                             </tr>
@@ -234,7 +453,7 @@
 
                                                 <th>Latest Full Dropoff:</th>
                                                 <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate }}</td>
-                                                
+
                                                 <th>Forwarder:</th>
                                                 <td>{{ shipment.ForwarderDetails.ForwarderName }}</td>
                                             </tr>
@@ -246,8 +465,10 @@
                     </tbody>
 
                 </table>
-            </div><!-- end .page-content -->
-        </div><!-- end .content-wrapper -->
+            </div>
+            <!-- end .page-content -->
+        </div>
+        <!-- end .content-wrapper -->
     </template>
 
 
@@ -257,15 +478,12 @@
             <div class="form-group">
                 <h2>
                     Input JSON here:
-                    <button class="btn btn-default" 
-                            style="margin-left: 15px;"
-                            @click="sendJsonData"
-                    >
+                    <button class="btn btn-default" style="margin-left: 15px;" @click="sendJsonData">
                         Add Data
                     </button>
                 </h2>
                 <textarea class="form-control json-textarea" rows="10" v-model="jsonData" value="jsonData"></textarea>
-            </div> 
+            </div>
             <div>
                 <h2>Example JSON</h2>
                 <pre>
@@ -322,7 +540,8 @@
 
     <!-- jQuery, Bootstrap, Font Awesome -->
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
 
     <!-- Vue JS -->
@@ -331,8 +550,9 @@
     <script src="https://unpkg.com/vue-swal"></script>
     <!-- Vue Components -->
     <script src="./scripts/vue-components.js"></script>
-    
+
     <!-- Custom JS -->
     <script src="./scripts/scripts.js"></script>
 </body>
+
 </html>

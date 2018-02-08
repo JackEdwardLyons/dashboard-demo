@@ -3,6 +3,23 @@
  * Lifecycle hooks: https://alligator.io/vuejs/component-lifecycle/
  * ----------------------------------------------------------------- */
 
+
+
+
+
+
+/* ---- SHIPMENT BOOKING COMPONENT ---- */
+Vue.component('vue-shipment-booking-component', {
+    template: '#vue-shipment-booking-component',
+    data: function () {
+        return {
+
+        }
+    }
+});
+
+
+
 // Notes:
 // Potentially move data into a accordion-data-table component or 
 // webpack compiled .vue files
@@ -44,7 +61,7 @@ Vue.component('vue-accordion-component', {
                 buttons: true,
                 dangerMode: true,
               })
-              .then((willDelete) => {
+              .then(function (willDelete) {
                 if (willDelete) {
                     swal("Your booking has been cancelled.", {
                         icon: "success",
