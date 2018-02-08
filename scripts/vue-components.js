@@ -61,7 +61,7 @@ Vue.component('vue-accordion-component', {
                 buttons: true,
                 dangerMode: true,
               })
-              .then(function (willDelete) {
+              .then((willDelete) => {
                 if (willDelete) {
                     swal("Your booking has been cancelled.", {
                         icon: "success",
