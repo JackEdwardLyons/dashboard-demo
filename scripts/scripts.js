@@ -42,7 +42,10 @@ var Dashboard = function () {
 }();
 Dashboard.init();
 
-
+/* -------------------- *\
+    Datepicker
+\* -------------------- */
+$('input[name="validity_range"]').daterangepicker();
 
 
 /* -------------------- *\

@@ -2,3 +2,15 @@
     font-family: monospace;
     white-space: pre;
 }
+
+.light-grey-bg {
+    background: #e1e1e1;
+}
+
+.flex {
+    display: flex;
+}
+
+.mb-2 {
+    margin-bottom: 2em;
+}

@@ -20,7 +20,7 @@
     <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
     <link rel="stylesheet" href="./styles/vue-accordion-component.css">
     <link rel="stylesheet" href="./styles/vue-shipment-booking-component.css">
-    
+
     <link rel="stylesheet" href="./styles/custom-styles.css">
 
 </head>
@@ -117,6 +117,7 @@
     <main class="l-main content-wrapper content-wrapper--with-bg" id="vue-app" v-cloak>
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
+                <h1 class="page-title">Dashboard</h1>
                 <vue-shipment-booking-component></vue-shipment-booking-component>
                 <vue-accordion-component></vue-accordion-component>
                 <vue-json-inputter-component></vue-json-inputter-component>
@@ -129,8 +130,37 @@
 
     <!-- The Vue Shipment Booking Component -->
     <template id="vue-shipment-booking-component">
-        <section class="bg-light-grey">
+        <section class="light-grey-bg flex mb-2 shipment-booking-component">
             <span class="validate fade " data-field="equipment"></span>
+            <fieldset class="row">
+                <section class="col-sm-2">
+                    <label class="label">Date Range</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-calendar"></i>
+                        <input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date"
+                            class="form-control validatable hidden" form="void" type="text">
+                    </label>
+                    <span class="validate fade " data-field="start_date"></span>
+                </section>
+                <section class="col-sm-2">
+                    <label class="label">Origin Port</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-arrow-up"></i>
+                        <input form="booking_form" placeholder="Port of Loading, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
+                            data-port="origin" data-validate="port_of_loading" autocomplete="off" type="text">
+                    </label>
+                    <span class="validate fade required in" data-field="port_of_loading"></span>
+                </section>
+                <section class="col-sm-2">
+                    <label class="label">Destination Port</label>
+                    <label class="input">
+                        <i class="icon-prepend fa fa-arrow-down"></i>
+                        <input form="booking_form" placeholder="Port of Discharge, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
+                            data-port="destination" data-validate="port_of_discharge" autocomplete="off" type="text">
+                    </label>
+                    <span class="validate fade " data-field="port_of_discharge"></span>
+                </section>
+            </fieldset>
             
             <div class="collapse navbar-collapse bg-color-grey">
                 <section>
@@ -274,39 +304,6 @@
                     </ul>
                 </section>
             </div>
-
-            <fieldset>
-                <section class="col col-3">
-                    <label class="label">Origin Port</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-arrow-up"></i>
-                        <input form="booking_form" placeholder="Port of Loading, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable"
-                            data-port="origin" data-validate="port_of_loading" autocomplete="off" type="text">
-                    </label>
-                    <span class="validate fade required in" data-field="port_of_loading">
-                        <i class="fa fa-exclamation-triangle"></i>&nbsp;Required</span>
-                </section>
-                <section class="col col-3">
-                    <label class="label">Destination Port</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-arrow-down"></i>
-                        <input form="booking_form" placeholder="Port of Discharge, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable"
-                            data-port="destination" data-validate="port_of_discharge" autocomplete="off" type="text">
-                    </label>
-                    <span class="validate fade " data-field="port_of_discharge"></span>
-                </section>
-                <section class="col col-3">
-                    <label class="label">Date Range</label>
-                    <label class="input">
-                        <i class="icon-prepend fa fa-calendar"></i>
-                        <input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date"
-                            class="form-control validatable" form="void" type="text">
-                    </label>
-                    <span class="validate fade " data-field="start_date"></span>
-
-                    
-                </section>
-            </fieldset>
         </section>
 
 
@@ -316,7 +313,7 @@
     <!-- The Vue Accordion Component Template -->
     <template id="vue-accordion-component">
         <div class="">
-            <h1 class="page-title">Dashboard</h1>
+            
             <div class="panel panel-default">
 
                 <div class="panel-heading">
@@ -520,22 +517,19 @@
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <!-- Date Range Picker -->
-    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <script type="text/javascript" src="./scripts/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles/date-range-picker.css" />
+    
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <!-- Vue Sweet Alert -->
     <script src="https://unpkg.com/vue-swal"></script>
     <!-- Vue Components -->
     <script src="./scripts/vue-components.js"></script>
-
     <!-- Custom JS -->
     <script src="./scripts/scripts.js" type="text/babel"></script>
 
-    <script>
-    $('input[name="validity_range"]').daterangepicker();
     
-    </script>
 </body>
 
 </html>
