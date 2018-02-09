@@ -146,33 +146,28 @@
                             </a>
                         </li>
 
-                        <!-- Port Pairs -->
+                        <!-- Origin Port -->
                         <li>
-                                <span v-show="selectedOriginPort" id="dest-port-badge" class="port-view badge eqt-badge">
-                                    {{ selectedOriginPort }}
-                                </span>
-                                
-                                <!-- <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span> -->
-                                <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                                    <i class="icon-prepend fa fa-arrow-down"></i>
-                                </a>
-                                <ul class="dropdown-menu eq-select" name="origin-port">
-                                    <li v-for="(port, index) in originPorts">
-                                        <a @click="updatePortName(originPorts, index, 'selectedOriginPort')" class="eq-qty" data-eq="origin-port" data-step="1" href="javascript:void(0);">
-                                            {{ port.name }} [ {{ port.code }} ]
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
+                            <span v-show="selectedOriginPort" id="dest-port-badge" class="port-view badge eqt-badge">
+                                {{ selectedOriginPort }}
+                            </span>
+                            <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                <i class="icon-prepend fa fa-arrow-down"></i>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="origin-port">
+                                <li v-for="(port, index) in originPorts">
+                                    <a @click="updatePortName(originPorts, index, 'selectedOriginPort')" class="eq-qty" data-eq="origin-port" data-step="1" href="javascript:void(0);">
+                                        {{ port.name }} [ {{ port.code }} ]
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
 
-
-
+                        <!-- Destination Port -->
                         <li>
                             <span v-show="selectedDestinationPort" id="origin-port-badge" class="port-view badge eqt-badge">
                                 {{ selectedDestinationPort }}
                             </span>
-                            
-                            <!-- <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span> -->
                             <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="icon-prepend fa fa-arrow-down"></i>
                             </a>
@@ -225,7 +220,7 @@
                             </ul>
                         </li>
                         <li>
-                            <button onclick="alert('This will show the data to be posted in JSON format.')" class="btn btn-success mt-10">
+                            <button @click="postBookingData()" class="btn btn-success mt-10">
                                 Book Now
                             </button>
                         </li>
