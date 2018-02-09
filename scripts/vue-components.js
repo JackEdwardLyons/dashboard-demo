@@ -29,12 +29,32 @@ Vue.component('vue-shipment-booking-component', {
         return {
             qty_20G0: 0,
             qty_40G0: 0,
-            qty_45G0: 0
+            qty_45G0: 0,
+            selectedOriginPort: '',
+            selectedDestinationPort: '',
+            originPorts: [
+                { name: 'Brisbane, Australia', code: 'AUBNE' },
+                { name: 'Shanghai, China', code: 'CNSHA' },
+                { name: 'Colorado Springs', code: 'USCOS' },
+                { name: 'Hamburg, Germany', code: 'DEHAM' },
+                { name: 'Constantza, Romania', code: 'ROCND' }
+            ],
+            destinationPorts: [
+                { name: 'Brisbane, Australia', code: 'AUBNE' },
+                { name: 'Shanghai, China', code: 'CNSHA' },
+                { name: 'Colorado Springs', code: 'USCOS' },
+                { name: 'Hamburg, Germany', code: 'DEHAM' },
+                { name: 'Constantza, Romania', code: 'ROCND' }
+            ]
         }
     },
     methods: {
         updateContainerQty: function (container, qty) {
             this[container] = qty;
+        },
+        updatePortName: function (ports, index, selectedPort) {
+            console.log('ports: ', ports, index, 'selectedPort: ', selectedPort);
+            this[selectedPort] = ports[index].code;
         }
     }
 });

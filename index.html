@@ -21,7 +21,6 @@
     <link rel="stylesheet" href="./styles/custom-styles.css">
 
 </head>
-
 <body>
 
     <body class="sidebar-is-reduced">
@@ -107,349 +106,363 @@
                     </ul>
                 </nav>
             </div>
-        </div>
-    </body>
+        </div><!-- .l-sidebar -->
+    
 
-    <!-- The Main Vue Instance -->
-    <main class="l-main content-wrapper content-wrapper--with-bg" id="vue-app" v-cloak>
-        <div class="row">
-            <div class="col-sm-10 col-sm-offset-1">
-                <h1 class="page-title">Dashboard</h1>
-                <vue-shipment-booking-component>
-                    <date-picker></date-picker>
-                </vue-shipment-booking-component>
-                <vue-accordion-component></vue-accordion-component>
-                <vue-json-inputter-component></vue-json-inputter-component>
-            </div>
-        </div>
-    </main>
-
-
-
-
-    <!-- The Vue Shipment Booking Component -->
-    <template id="vue-shipment-booking-component">
-       <section class="shipment-booking-component">
-            <div class="light-grey-bg flex mb-2">
-                <ul class="nav navbar-nav flex">
-
-                    <li>
-                        <span id="date-view-badge" class="date-view badge eqt-badge"></span>
-                        <a href="#">
-                            <label class="input" title="Booking Date Range">
-                                <i class="icon-prepend fa fa-calendar"></i>
-
-                                <!-- Date Range Picker -->
-                                <slot></slot>
-
-                            </label>
-                            <span class="validate fade " data-field="start_date"></span>
-                        </a>
-                    </li>
-
-                    <!-- Port Pairs -->
-                    <li>
-                        <span id="origin-port-badge" class="port-view badge eqt-badge"></span>
-                        <a href="#">
-                            <label class="input" title="Origin Port">
-                                <i class="icon-prepend fa fa-arrow-up"></i>
-                                <input form="booking_form" placeholder="Port of Loading, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
-                                    data-port="origin" data-validate="port_of_loading" autocomplete="off" type="text">
-                            </label>
-                            <span class="validate fade required in" data-field="port_of_loading"></span>
-                        </a>
-                    </li>
-
-                    <li>
-                        <span id="dest-port-badge" class="port-view badge eqt-badge"></span>
-                        <a href="#">
-                            <label class="input" title="Destination Port">
-                                <i class="icon-prepend fa fa-arrow-down"></i>
-                                <input form="booking_form" placeholder="Port of Discharge, name or UN/LOCODE" class="port-search ui-autocomplete-input validatable hidden"
-                                    data-port="destination" data-validate="port_of_discharge" autocomplete="off" type="text">
-                            </label>
-                            <span class="validate fade " data-field="port_of_discharge"></span>
-                        </a>
-                    </li>
-
-
-
-                    <!-- Equipment Numbers -->
-                    <li class="dropdown pos-rel">
-                        <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span>
-                        <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                            20'&nbsp;GP
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu eq-select" name="q-20G0">
-                            <li v-for="(item, index) in 10">
-                                <a :value="qty_20G0" @click="updateContainerQty('qty_20G0', index)" class="eq-qty" data-eq="20G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <span :value="qty_40G0" v-show="qty_40G0 > 0" id="1-42G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_40G0 }}</span>
-                        <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                            40'&nbsp;GP
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu eq-select" name="q-42G0">
-                            <li v-for="(item, index) in 10">
-                                <a :value="qty_40G0" @click="updateContainerQty('qty_40G0', index)" class="eq-qty" data-eq="42G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <span :value="qty_45G0" v-show="qty_45G0 > 0" id="1-45G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_45G0 }}</span>
-                        <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
-                            45'&nbsp;HC
-                            <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu eq-select" name="q-45G0">
-                            <li v-for="(item, index) in 10">
-                                <a :value="qty_45G0" @click="updateContainerQty('qty_45G0', index)"  class="eq-qty" data-eq="45G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}&nbsp;</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <button onclick="alert('This will show the data to be posted in JSON format.')" class="btn btn-success mt-10">
-                            Book Now
-                        </button>
-                    </li>
-                </ul>
-            </div><!-- .light-grey-bg -->
-        </section>
-
-
-    </template>
-
-
-    <!-- The Vue Accordion Component Template -->
-    <template id="vue-accordion-component">
-        <div class="">
-
-            <div class="panel panel-default">
-
-                <div class="panel-heading">
-                    <h3>Hello {{ username }}, you have {{ shipmentData.length }} shipments:</h3>
+            <!-- The Main Vue Instance -->
+            <main class="l-main content-wrapper content-wrapper--with-bg" id="vue-app" v-cloak>
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <h1 class="page-title">Dashboard</h1>
+                        <vue-shipment-booking-component>
+                            <date-picker></date-picker>
+                        </vue-shipment-booking-component>
+                        <vue-accordion-component></vue-accordion-component>
+                        <vue-json-inputter-component></vue-json-inputter-component>
+                    </div>
                 </div>
+            </main>
 
-                <table class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
-                    <thead>
+
+
+
+        <!-- The Vue Shipment Booking Component -->
+        <template id="vue-shipment-booking-component">
+        <section class="shipment-booking-component">
+                <div class="light-grey-bg flex mb-2">
+                    <ul class="nav navbar-nav flex">
+
+                        <li>
+                            <span id="date-view-badge" class="date-view badge eqt-badge"></span>
+                            <a href="#">
+                                <label class="input" title="Booking Date Range">
+                                    <i class="icon-prepend fa fa-calendar"></i>
+
+                                    <!-- Date Range Picker -->
+                                    <slot></slot>
+
+                                </label>
+                                <span class="validate fade " data-field="start_date"></span>
+                            </a>
+                        </li>
+
+                        <!-- Port Pairs -->
+                        <li>
+                                <span v-show="selectedOriginPort" id="dest-port-badge" class="port-view badge eqt-badge">
+                                    {{ selectedOriginPort }}
+                                </span>
+                                
+                                <!-- <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span> -->
+                                <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                    <i class="icon-prepend fa fa-arrow-down"></i>
+                                </a>
+                                <ul class="dropdown-menu eq-select" name="origin-port">
+                                    <li v-for="(port, index) in originPorts">
+                                        <a @click="updatePortName(originPorts, index, 'selectedOriginPort')" class="eq-qty" data-eq="origin-port" data-step="1" href="javascript:void(0);">
+                                            {{ port.name }} [ {{ port.code }} ]
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+
+                        <li>
+                            <span v-show="selectedDestinationPort" id="origin-port-badge" class="port-view badge eqt-badge">
+                                {{ selectedDestinationPort }}
+                            </span>
+                            
+                            <!-- <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span> -->
+                            <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                <i class="icon-prepend fa fa-arrow-down"></i>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="destination-port">
+                                <li v-for="(port, index) in destinationPorts">
+                                    <a @click="updatePortName(destinationPorts, index, 'selectedDestinationPort')" class="eq-qty" data-eq="dest-port" data-step="1" href="javascript:void(0);">
+                                        {{ port.name }} [ {{ port.code }} ]
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+
+
+                        <!-- Equipment Numbers -->
+                        <li class="dropdown pos-rel">
+                            <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span>
+                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                20'&nbsp;GP
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="q-20G0">
+                                <li v-for="(item, index) in 10">
+                                    <a :value="qty_20G0" @click="updateContainerQty('qty_20G0', index)" class="eq-qty" data-eq="20G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <span :value="qty_40G0" v-show="qty_40G0 > 0" id="1-42G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_40G0 }}</span>
+                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                40'&nbsp;GP
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="q-42G0">
+                                <li v-for="(item, index) in 10">
+                                    <a :value="qty_40G0" @click="updateContainerQty('qty_40G0', index)" class="eq-qty" data-eq="42G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <span :value="qty_45G0" v-show="qty_45G0 > 0" id="1-45G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_45G0 }}</span>
+                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                                45'&nbsp;HC
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu eq-select" name="q-45G0">
+                                <li v-for="(item, index) in 10">
+                                    <a :value="qty_45G0" @click="updateContainerQty('qty_45G0', index)"  class="eq-qty" data-eq="45G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}&nbsp;</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button onclick="alert('This will show the data to be posted in JSON format.')" class="btn btn-success mt-10">
+                                Book Now
+                            </button>
+                        </li>
+                    </ul>
+                </div><!-- .light-grey-bg -->
+            </section>
+
+
+        </template>
+
+
+        <!-- The Vue Accordion Component Template -->
+        <template id="vue-accordion-component">
+            <div class="">
+
+                <div class="panel panel-default">
+
+                    <div class="panel-heading">
+                        <h3>Hello {{ username }}, you have {{ shipmentData.length }} shipments:</h3>
+                    </div>
+
+                    <table class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>Internal Reference</th>
+                                <th>Carrier</th>
+                                <th>Vessel</th>
+                                <th>POL</th>
+                                <th>Cutoff*</th>
+                                <th>ETD</th>
+                                <th>POD</th>
+                                <th>ETA</th>
+                                <th>Price ($USD)</th>
+                                <th>No. of Containers</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Loading Screen -->
                         <tr>
-                            <th>Status</th>
-                            <th>Internal Reference</th>
-                            <th>Carrier</th>
-                            <th>Vessel</th>
-                            <th>POL</th>
-                            <th>Cutoff*</th>
-                            <th>ETD</th>
-                            <th>POD</th>
-                            <th>ETA</th>
-                            <th>Price ($USD)</th>
-                            <th>No. of Containers</th>
-                            <th>Details</th>
-                        </tr>
-                    </thead>
-
-                    <!-- Loading Screen -->
-                    <tr>
-                        <div class="timeline-item" v-if="loading">
-                            <div class="animated-background">
-                                <div class="background-masker header-top"></div>
-                                <div class="background-masker header-left"></div>
-                                <div class="background-masker header-right"></div>
-                                <div class="background-masker header-bottom"></div>
-                                <div class="background-masker subheader-left"></div>
-                                <div class="background-masker subheader-right"></div>
-                                <div class="background-masker subheader-bottom"></div>
-                                <div class="background-masker content-top"></div>
-                                <div class="background-masker content-first-end"></div>
-                                <div class="background-masker content-second-line"></div>
-                                <div class="background-masker content-second-end"></div>
-                                <div class="background-masker content-third-line"></div>
-                                <div class="background-masker content-third-end"></div>
+                            <div class="timeline-item" v-if="loading">
+                                <div class="animated-background">
+                                    <div class="background-masker header-top"></div>
+                                    <div class="background-masker header-left"></div>
+                                    <div class="background-masker header-right"></div>
+                                    <div class="background-masker header-bottom"></div>
+                                    <div class="background-masker subheader-left"></div>
+                                    <div class="background-masker subheader-right"></div>
+                                    <div class="background-masker subheader-bottom"></div>
+                                    <div class="background-masker content-top"></div>
+                                    <div class="background-masker content-first-end"></div>
+                                    <div class="background-masker content-second-line"></div>
+                                    <div class="background-masker content-second-end"></div>
+                                    <div class="background-masker content-third-line"></div>
+                                    <div class="background-masker content-third-end"></div>
+                                </div>
                             </div>
-                        </div>
-                    </tr>
-
-                    <tbody v-for="(shipment, index) in shipmentData" v-bind:key="index" class="table table-condensed" style="border-collapse:collapse;"
-                        v-show="!loading">
-
-                        <tr @click="toggleShipmentData(index)" class="accordion-toggle table-hover">
-                            <td class="text-success text-uppercase text-bold" :class="{ 
-                                    'pending-status':   shipment.bookingStatus === 'PENDING', 
-                                    'confirmed-status': shipment.bookingStatus === 'CONFIRMED',
-                                    'rejected-status':  shipment.bookingStatus === 'REJECTED' || shipment.bookingStatus === 'CANCELLED',
-                                }">
-                                {{ shipment.bookingStatus }}
-                            </td>
-                            <td>{{ shipment.InternalReference }}</td>
-                            <td>{{ shipment.CarrierName }}</td>
-                            <td>{{ shipment.VesselName }}</td>
-                            <td>{{ shipment.PortOfLoadName }}</td>
-                            <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate || '-' }}</td>
-                            <td>{{ shipment.OriginDeparts }}</td>
-                            <td>{{ shipment.PortOfDischargeName }}</td>
-                            <td>{{ shipment.DestinationArrives }}</td>
-                            <td>{{ shipment.FreightCost }}</td>
-                            <td>
-                                <div v-for="equipment in shipment.EquipmentDetails">
-                                    <small>{{ equipment.EquipmentDescription }}: {{ equipment.NumberOfEquipment }}</small>
-                                </div>
-                            </td>
-                            <td>
-                                <span class="pull-left glyphicon glyphicon-download-alt"></span>
-                                <span @click.stop="cancelBooking(index)" class=" pull-right glyphicon glyphicon-remove-circle" v-show="shipment.bookingStatus !== 'CANCELLED'"></span>
-                            </td>
                         </tr>
-                        <tr>
-                            <td colspan="12" v-show="shipment.isOpen">
-                                <div class="accordian-body">
-                                    <table class="table table-striped hidden-table gold-bg">
-                                        <tbody class="gold-bg">
-                                            <tr class="gold-bg">
-                                                <th>Voyage Number:</th>
-                                                <td>{{ shipment.VoyageNumber }}</td>
 
-                                                <th>Empty Pickup Address:</th>
-                                                <td v-if="shipment.confirmation">
-                                                    <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.confirmation.EmptyPickUpLocation">
-                                                        {{ shipment.confirmation.EmptyPickUpLocation }}
-                                                    </a>
-                                                </td>
+                        <tbody v-for="(shipment, index) in shipmentData" v-bind:key="index" class="table table-condensed" style="border-collapse:collapse;"
+                            v-show="!loading">
 
-                                                <th>Full Dropoff Location:</th>
-                                                <td v-if="shipment.confirmation">
-                                                    <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.confirmation.FullDropOffLocation">
-                                                        {{ shipment.confirmation.FullDropOffLocation }}
-                                                    </a>
-                                                </td>
-                                            </tr>
-                                            <tr class="gold-bg" v-if="shipment.confirmation">
-                                                <th>Carrier Reference Number:</th>
-                                                <td>{{ shipment.confirmation.CarrierReferenceNumber }}</td>
+                            <tr @click="toggleShipmentData(index)" class="accordion-toggle table-hover">
+                                <td class="text-success text-uppercase text-bold" :class="{ 
+                                        'pending-status':   shipment.bookingStatus === 'PENDING', 
+                                        'confirmed-status': shipment.bookingStatus === 'CONFIRMED',
+                                        'rejected-status':  shipment.bookingStatus === 'REJECTED' || shipment.bookingStatus === 'CANCELLED',
+                                    }">
+                                    {{ shipment.bookingStatus }}
+                                </td>
+                                <td>{{ shipment.InternalReference }}</td>
+                                <td>{{ shipment.CarrierName }}</td>
+                                <td>{{ shipment.VesselName }}</td>
+                                <td>{{ shipment.PortOfLoadName }}</td>
+                                <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate || '-' }}</td>
+                                <td>{{ shipment.OriginDeparts }}</td>
+                                <td>{{ shipment.PortOfDischargeName }}</td>
+                                <td>{{ shipment.DestinationArrives }}</td>
+                                <td>{{ shipment.FreightCost }}</td>
+                                <td>
+                                    <div v-for="equipment in shipment.EquipmentDetails">
+                                        <small>{{ equipment.EquipmentDescription }}: {{ equipment.NumberOfEquipment }}</small>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="pull-left glyphicon glyphicon-download-alt"></span>
+                                    <span @click.stop="cancelBooking(index)" class=" pull-right glyphicon glyphicon-remove-circle" v-show="shipment.bookingStatus !== 'CANCELLED'"></span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="12" v-show="shipment.isOpen">
+                                    <div class="accordian-body">
+                                        <table class="table table-striped hidden-table gold-bg">
+                                            <tbody class="gold-bg">
+                                                <tr class="gold-bg">
+                                                    <th>Voyage Number:</th>
+                                                    <td>{{ shipment.VoyageNumber }}</td>
 
-                                                <th>Earliest Empty Pickup:</th>
-                                                <td>{{ shipment.confirmation.EarliestEmptyPickUpDate }}</td>
+                                                    <th>Empty Pickup Address:</th>
+                                                    <td v-if="shipment.confirmation">
+                                                        <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.confirmation.EmptyPickUpLocation">
+                                                            {{ shipment.confirmation.EmptyPickUpLocation }}
+                                                        </a>
+                                                    </td>
 
-                                                <th>Earliest Full Dropoff:</th>
-                                                <td>{{ shipment.confirmation.EarliestFullDropOff }}</td>
-                                            </tr>
-                                            <tr class="gold-bg">
-                                                <th>Container Release Number:</th>
-                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.ContainerReleaseNumber }}</td>
+                                                    <th>Full Dropoff Location:</th>
+                                                    <td v-if="shipment.confirmation">
+                                                        <a target="_blank" :href="'https://maps.google.com/?q=' + shipment.confirmation.FullDropOffLocation">
+                                                            {{ shipment.confirmation.FullDropOffLocation }}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="gold-bg" v-if="shipment.confirmation">
+                                                    <th>Carrier Reference Number:</th>
+                                                    <td>{{ shipment.confirmation.CarrierReferenceNumber }}</td>
 
-                                                <th>Latest Full Dropoff:</th>
-                                                <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate }}</td>
+                                                    <th>Earliest Empty Pickup:</th>
+                                                    <td>{{ shipment.confirmation.EarliestEmptyPickUpDate }}</td>
 
-                                                <th>Forwarder:</th>
-                                                <td>{{ shipment.ForwarderDetails.ForwarderName }}</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                                                    <th>Earliest Full Dropoff:</th>
+                                                    <td>{{ shipment.confirmation.EarliestFullDropOff }}</td>
+                                                </tr>
+                                                <tr class="gold-bg">
+                                                    <th>Container Release Number:</th>
+                                                    <td v-if="shipment.confirmation">{{ shipment.confirmation.ContainerReleaseNumber }}</td>
 
-                </table>
+                                                    <th>Latest Full Dropoff:</th>
+                                                    <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate }}</td>
+
+                                                    <th>Forwarder:</th>
+                                                    <td>{{ shipment.ForwarderDetails.ForwarderName }}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+                <!-- end .page-content -->
             </div>
-            <!-- end .page-content -->
-        </div>
-        <!-- end .content-wrapper -->
-    </template>
+            <!-- end .content-wrapper -->
+        </template>
 
 
-    <!-- JSON Input Area -->
-    <template id="vue-json-inputter-component">
-        <div>
-            <div class="form-group">
-                <h2>
-                    Input JSON here:
-                    <button class="btn btn-default" style="margin-left: 15px;" @click="sendJsonData">
-                        Add Data
-                    </button>
-                </h2>
-                <textarea class="form-control json-textarea" rows="10" v-model="jsonData" value="jsonData"></textarea>
-            </div>
+        <!-- JSON Input Area -->
+        <template id="vue-json-inputter-component">
             <div>
-                <h2>Example JSON</h2>
-                <pre>
-                    <code>
-                        {
-                            "InternalReference": "PO101",
-                            "FreightCost": "2400",
-                            "CarrierPartnerAlias": "MAEU",
-                            "Context": "ExplorateNoTerms",
-                            "EquipmentDetails": [
-                                {
-                                    "NumberOfEquipment": "1",
-                                    "ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
-                                    "EquipmentTypeCode": "45G0",
-                                    "EquipmentDescription": "40 Highcube"
+                <div class="form-group">
+                    <h2>
+                        Input JSON here:
+                        <button class="btn btn-default" style="margin-left: 15px;" @click="sendJsonData">
+                            Add Data
+                        </button>
+                    </h2>
+                    <textarea class="form-control json-textarea" rows="10" v-model="jsonData" value="jsonData"></textarea>
+                </div>
+                <div>
+                    <h2>Example JSON</h2>
+                    <pre>
+                        <code>
+                            {
+                                "InternalReference": "PO101",
+                                "FreightCost": "2400",
+                                "CarrierPartnerAlias": "MAEU",
+                                "Context": "ExplorateNoTerms",
+                                "EquipmentDetails": [
+                                    {
+                                        "NumberOfEquipment": "1",
+                                        "ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+                                        "EquipmentTypeCode": "45G0",
+                                        "EquipmentDescription": "40 Highcube"
+                                    },
+                                    {
+                                        "NumberOfEquipment": "1",
+                                        "ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+                                        "EquipmentTypeCode": "22G0",
+                                        "EquipmentDescription": "20 General"
+                                    }
+                                ],
+                                "PortOfDischargeName": "Singapore, Singapore",
+                                "PortOfLoadName": "Sydney, Australia",
+                                "OriginDeparts": "20-Oct-17",
+                                "VesselName": "CARL SCHULTE",
+                                "ForwarderDetails": {
+                                    "ForwarderName": "DSV Air & Sea"
                                 },
-                                {
-                                    "NumberOfEquipment": "1",
-                                    "ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
-                                    "EquipmentTypeCode": "22G0",
-                                    "EquipmentDescription": "20 General"
+                                "DestinationArrives": "07-Nov-17",
+                                "VoyageNumber": "735N",
+                                "CarrierName": "Maersk Line",
+                                "confirmation": {
+                                    "LatestFullDeliveryDate": "18-Oct-17",
+                                    "CarrierReferenceNumber": "AAA123",
+                                    "ContainerReleaseNumber": "bc123",
+                                    "EarliestEmptyPickUpDate": "10-Oct-17",
+                                    "EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
+                                    "EarliestFullDropOff": "16-Oct-17",
+                                    "FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
+                                },
+                                "rejected": {
+                                    "message": "Your booking has been cancelled."
                                 }
-                            ],
-                            "PortOfDischargeName": "Singapore, Singapore",
-                            "PortOfLoadName": "Sydney, Australia",
-                            "OriginDeparts": "20-Oct-17",
-                            "VesselName": "CARL SCHULTE",
-                            "ForwarderDetails": {
-                                "ForwarderName": "DSV Air & Sea"
-                            },
-                            "DestinationArrives": "07-Nov-17",
-                            "VoyageNumber": "735N",
-                            "CarrierName": "Maersk Line",
-                            "confirmation": {
-                                "LatestFullDeliveryDate": "18-Oct-17",
-                                "CarrierReferenceNumber": "AAA123",
-                                "ContainerReleaseNumber": "bc123",
-                                "EarliestEmptyPickUpDate": "10-Oct-17",
-                                "EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
-                                "EarliestFullDropOff": "16-Oct-17",
-                                "FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
-                            },
-                            "rejected": {
-                                "message": "Your booking has been cancelled."
                             }
-                        }
-                    </code>
-                </pre>
+                        </code>
+                    </pre>
+                </div>
             </div>
-        </div>
-    </template>
+        </template>
 
 
 
-    <!-- jQuery, Bootstrap, Font Awesome -->
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-    <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
-    <!-- Babel Standalone -->
-    <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+        <!-- jQuery, Bootstrap, Font Awesome -->
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+        <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
+        <!-- Babel Standalone -->
+        <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
 
-    <!-- Moment.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <!-- Date Range Picker -->
-    <script type="text/javascript" src="./scripts/daterangepicker.js"></script>
+        <!-- Moment.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
+        <!-- Date Range Picker -->
+        <script type="text/javascript" src="./scripts/daterangepicker.js"></script>
 
-    <!-- Vue JS -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
-    <!-- Vue Sweet Alert -->
-    <script src="https://unpkg.com/vue-swal"></script>
-    <!-- Vue Select -->
-    <script src="https://unpkg.com/vue-select@latest"></script>
-    <!-- Vue Components -->
-    <script src="./scripts/vue-components.js"></script>
-    <!-- Custom JS -->
-    <script src="./scripts/scripts.js"></script>
+        <!-- Vue JS -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+        <!-- Vue Sweet Alert -->
+        <script src="https://unpkg.com/vue-swal"></script>
+        <!-- Vue Select -->
+        <script src="https://unpkg.com/vue-select@latest"></script>
+        <!-- Vue Components -->
+        <script src="./scripts/vue-components.js"></script>
+        <!-- Custom JS -->
+        <script src="./scripts/scripts.js"></script>
 
 
 </body>
