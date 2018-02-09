@@ -12,7 +12,7 @@
     background: #107070;
     color: #fff;
     font-weight: normal;
-    height: 18px;
+    min-height: 18px;
     position: absolute;
     top: -5px;
     left: 50%;
@@ -22,6 +22,6 @@
 }
 
 .date-view {
-    left: 0;
-    top: -5px;
+    left: 24px;
+    top: -25px;
 }

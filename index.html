@@ -5,22 +5,19 @@
     <meta charset='UTF-8'>
     <meta name="robots" content="noindex">
 
-    <!-- Dashboard CSS -->
+    <!-- Global CSS -->
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css'>
-
-    <style class="cp-pen-styles">
-        @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700&subset=latin-ext");
-    </style>
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" > 
+    <!-- Dashboard CSS -->
     <link rel="stylesheet" href="./styles/dashboard.css">
-
+    <link rel="stylesheet" href="./styles/date-range-picker.css" />
     <!-- Vue Bootstrap CSS -->
-    <link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
     <link rel="stylesheet" href="./styles/vue-accordion-component.css">
     <link rel="stylesheet" href="./styles/vue-shipment-booking-component.css">
-
+    <!-- Global Styles -->
     <link rel="stylesheet" href="./styles/custom-styles.css">
 
 </head>
@@ -118,7 +115,9 @@
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1">
                 <h1 class="page-title">Dashboard</h1>
-                <vue-shipment-booking-component></vue-shipment-booking-component>
+                <vue-shipment-booking-component>
+                    <date-picker></date-picker>
+                </vue-shipment-booking-component>
                 <vue-accordion-component></vue-accordion-component>
                 <vue-json-inputter-component></vue-json-inputter-component>
             </div>
@@ -139,8 +138,10 @@
                         <a href="#">
                             <label class="input" title="Booking Date Range">
                                 <i class="icon-prepend fa fa-calendar"></i>
-                                <input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date"
-                                    class="form-control validatable hidden" form="void" type="text">
+
+                                <!-- Date Range Picker -->
+                                <slot></slot>
+
                             </label>
                             <span class="validate fade " data-field="start_date"></span>
                         </a>
@@ -148,7 +149,7 @@
 
                     <!-- Port Pairs -->
                     <li>
-                        <span id="origin-port-badge" class="port-view badge eqt-badge">SYDNEY</span>
+                        <span id="origin-port-badge" class="port-view badge eqt-badge"></span>
                         <a href="#">
                             <label class="input" title="Origin Port">
                                 <i class="icon-prepend fa fa-arrow-up"></i>
@@ -160,7 +161,7 @@
                     </li>
 
                     <li>
-                        <span id="dest-port-badge" class="port-view badge eqt-badge">CHINA</span>
+                        <span id="dest-port-badge" class="port-view badge eqt-badge"></span>
                         <a href="#">
                             <label class="input" title="Destination Port">
                                 <i class="icon-prepend fa fa-arrow-down"></i>
@@ -244,6 +245,7 @@
                             <th>Cutoff*</th>
                             <th>ETD</th>
                             <th>POD</th>
+                            <th>ETA</th>
                             <th>Price ($USD)</th>
                             <th>No. of Containers</th>
                             <th>Details</th>
@@ -286,11 +288,16 @@
                             <td>{{ shipment.CarrierName }}</td>
                             <td>{{ shipment.VesselName }}</td>
                             <td>{{ shipment.PortOfLoadName }}</td>
-                            <td>15-Apr-18</td>
-                            <td>16-Apr-18</td>
+                            <td v-if="shipment.confirmation">{{ shipment.confirmation.LatestFullDeliveryDate || '-' }}</td>
+                            <td>{{ shipment.OriginDeparts }}</td>
                             <td>{{ shipment.PortOfDischargeName }}</td>
+                            <td>{{ shipment.DestinationArrives }}</td>
                             <td>{{ shipment.FreightCost }}</td>
-                            <td>{{ shipment.EquipmentDetails.length }}</td>
+                            <td>
+                                <div v-for="equipment in shipment.EquipmentDetails">
+                                    <small>{{ equipment.EquipmentDescription }}: {{ equipment.NumberOfEquipment }}</small>
+                                </div>
+                            </td>
                             <td>
                                 <span class="pull-left glyphicon glyphicon-download-alt"></span>
                                 <span @click.stop="cancelBooking(index)" class=" pull-right glyphicon glyphicon-remove-circle" v-show="shipment.bookingStatus !== 'CANCELLED'"></span>
@@ -427,16 +434,18 @@
     <script src='https://use.fontawesome.com/2188c74ac9.js'></script>
     <!-- Babel Standalone -->
     <!-- <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script> -->
+
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <!-- Date Range Picker -->
     <script type="text/javascript" src="./scripts/daterangepicker.js"></script>
-    <link rel="stylesheet" type="text/css" href="./styles/date-range-picker.css" />
 
     <!-- Vue JS -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
     <!-- Vue Sweet Alert -->
     <script src="https://unpkg.com/vue-swal"></script>
+    <!-- Vue Select -->
+    <script src="https://unpkg.com/vue-select@latest"></script>
     <!-- Vue Components -->
     <script src="./scripts/vue-components.js"></script>
     <!-- Custom JS -->

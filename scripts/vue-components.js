@@ -4,8 +4,22 @@
  * ----------------------------------------------------------------- */
 
 
-
-
+/* ---- DATE RANGE PICKER COMPONENT ---- */
+Vue.component('date-picker', {
+    template: '<input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date" class="form-control validatable hidden" form="void" type="text">',
+    mounted: function () {
+      $(this.$el).daterangepicker();
+        $('#_validity_range').on('apply.daterangepicker', function(ev, picker) {
+            var start = picker.startDate.format('DD-MM-YY');
+            var end   = picker.endDate.format('DD-MM-YY');
+            $('#date-view-badge').show().html(start + ' <br> to <br> ' + end);
+        });
+    },
+    beforeDestroy: function() {
+        $(this.$el).daterangepicker('hide').daterangepicker('destroy');
+    }
+});
+  
 
 
 /* ---- SHIPMENT BOOKING COMPONENT ---- */
@@ -20,12 +34,8 @@ Vue.component('vue-shipment-booking-component', {
     },
     methods: {
         updateContainerQty: function (container, qty) {
-            console.log(container, qty);
             this[container] = qty;
         }
-    },
-    created: function () {
-        console.log( this.$refs );
     }
 });
 
@@ -88,6 +98,7 @@ Vue.component('vue-accordion-component', {
         helloMsg: function () {
             return 'Hello, ' + this.name + '. You have ' + this.shipmentData.length + ' shipments.';
         }
+        
     },
   
     created() {
