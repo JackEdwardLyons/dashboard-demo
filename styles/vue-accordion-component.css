@@ -38,7 +38,8 @@ th {
 }
 
 .gold-bg {
-    background: #d2d369 !important;
+    background: #fcf8e3 !important;
+    border: 1px solid #ddd;
 }
 
 /* Vue cloak hides braces until instance has loaded */

@@ -1,9 +1,11 @@
-
-
 .shipment-booking-component {
-    border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 0.5em 1em;
+    margin-bottom: 2em;
+    padding: 0;
+}
+
+.shipment-booking-button {
+    height: 100%;
 }
 
 .date-view,
@@ -31,5 +33,20 @@
 
 .date-view {
     left: -25px;
-    top: 5px;
+    top: -22px;
+}
+
+.light-grey-bg {
+    background: #e1e1e1;
+    padding: 0 1em 0 0;
+}
+
+
+@media screen and (max-width: 767px) {
+    .light-grey-bg {
+        padding: 0 2em 0 1em; 
+    }
+    .btn-success.mt-10 {
+        margin-top: .5em;
+    }
 }

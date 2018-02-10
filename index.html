@@ -109,32 +109,30 @@
         </div><!-- .l-sidebar -->
     
 
-            <!-- The Main Vue Instance -->
-            <main class="l-main content-wrapper content-wrapper--with-bg" id="vue-app" v-cloak>
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1">
-                        <h1 class="page-title">Dashboard</h1>
-                        <vue-shipment-booking-component>
-                            <date-picker></date-picker>
-                        </vue-shipment-booking-component>
-                        <vue-accordion-component></vue-accordion-component>
-                        <vue-json-inputter-component></vue-json-inputter-component>
-                    </div>
+        <!-- The Main Vue Instance -->
+        <main class="l-main content-wrapper content-wrapper--with-bg" id="vue-app" v-cloak>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <h1 class="page-title">Dashboard</h1>
+                    <vue-shipment-booking-component>
+                        <date-picker></date-picker>
+                    </vue-shipment-booking-component>
+                    <vue-accordion-component></vue-accordion-component>
+                    <vue-json-inputter-component></vue-json-inputter-component>
                 </div>
-            </main>
-
-
+            </div>
+        </main><!-- #vue-app -->
 
 
         <!-- The Vue Shipment Booking Component -->
         <template id="vue-shipment-booking-component">
-        <section class="shipment-booking-component">
-                <div class="light-grey-bg flex mb-2">
+            <section class="shipment-booking-component flex">
+                <div class="light-grey-bg flex">
                     <ul class="nav navbar-nav flex">
 
                         <li>
                             <span id="date-view-badge" class="date-view badge eqt-badge"></span>
-                            <a href="#">
+                            <a href="#" class="shipment-booking-button">
                                 <label class="input" title="Booking Date Range">
                                     <i class="icon-prepend fa fa-calendar"></i>
 
@@ -151,7 +149,7 @@
                             <span v-show="selectedOriginPort" id="dest-port-badge" class="port-view badge eqt-badge">
                                 {{ selectedOriginPort }}
                             </span>
-                            <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            <a title="Destination Port" class="dropdown-toggle shipment-booking-button" data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="icon-prepend fa fa-arrow-down"></i>
                             </a>
                             <ul class="dropdown-menu eq-select" name="origin-port">
@@ -168,7 +166,7 @@
                             <span v-show="selectedDestinationPort" id="origin-port-badge" class="port-view badge eqt-badge">
                                 {{ selectedDestinationPort }}
                             </span>
-                            <a title="Destination Port" class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            <a title="Destination Port" class="dropdown-toggle shipment-booking-button"  data-toggle="dropdown" href="javascript:void(0);">
                                 <i class="icon-prepend fa fa-arrow-down"></i>
                             </a>
                             <ul class="dropdown-menu eq-select" name="destination-port">
@@ -180,12 +178,10 @@
                             </ul>
                         </li>
 
-
-
                         <!-- Equipment Numbers -->
                         <li class="dropdown pos-rel">
                             <span :value="qty_20G0" v-show="qty_20G0 > 0" id="1-20G0-qty-badge" class="equipment-view badge eqt-badge">{{ qty_20G0 }}</span>
-                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            <a class="dropdown-toggle shipment-booking-button" data-toggle="dropdown" href="javascript:void(0);">
                                 20'&nbsp;GP
                                 <b class="caret"></b>
                             </a>
@@ -197,7 +193,7 @@
                         </li>
                         <li class="dropdown">
                             <span :value="qty_40G0" v-show="qty_40G0 > 0" id="1-42G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_40G0 }}</span>
-                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            <a class="dropdown-toggle shipment-booking-button" data-toggle="dropdown" href="javascript:void(0);">
                                 40'&nbsp;GP
                                 <b class="caret"></b>
                             </a>
@@ -209,7 +205,7 @@
                         </li>
                         <li class="dropdown">
                             <span :value="qty_45G0" v-show="qty_45G0 > 0" id="1-45G0-qty-badge" class="badge eqt-badge equipment-view">{{ qty_45G0 }}</span>
-                            <a class="dropdown-toggle quickpick" data-toggle="dropdown" href="javascript:void(0);">
+                            <a class="dropdown-toggle shipment-booking-button" data-toggle="dropdown" href="javascript:void(0);">
                                 45'&nbsp;HC
                                 <b class="caret"></b>
                             </a>
@@ -227,21 +223,17 @@
                     </ul>
                 </div><!-- .light-grey-bg -->
             </section>
-
-
-        </template>
+        </template><!-- #vue-shipment-booking-component -->
 
 
         <!-- The Vue Accordion Component Template -->
         <template id="vue-accordion-component">
             <div class="">
-
                 <div class="panel panel-default">
-
                     <div class="panel-heading">
                         <h3>Hello {{ username }}, you have {{ shipmentData.length }} shipments:</h3>
                     </div>
-
+                    
                     <table class="table table-condensed" style="border-collapse:collapse;" v-show="!loading">
                         <thead>
                             <tr>
@@ -360,13 +352,11 @@
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
-                </div>
-                <!-- end .page-content -->
-            </div>
-            <!-- end .content-wrapper -->
-        </template>
+
+                </div><!-- .page-content -->
+            </div><!-- .content-wrapper -->
+        </template><!-- #vue-accordion-component -->
 
 
         <!-- JSON Input Area -->
@@ -431,7 +421,7 @@
                     </pre>
                 </div>
             </div>
-        </template>
+        </template><!-- #vue-json-inputter-component -->
 
 
 

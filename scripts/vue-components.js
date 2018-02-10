@@ -37,6 +37,7 @@
         template: '#vue-shipment-booking-component',
         data: function () {
             return {
+                bookingRequest: {},
                 startDate: '',
                 endDate: '',
                 qty_20G0: 0,
@@ -69,6 +70,15 @@
             },
             postBookingData() {
                 var self = this;
+                this.bookingRequest = {
+                    "port_of_loading": this.selectedOriginPort,
+                    "port_of_discharge": this.selectedDestinationPort,
+                    "start_date": this.startDate,
+                    "end_date": this.endDate,
+                    "20G0": this.qty_20G0,
+                    "42G0": this.qty_40G0,
+                    "45G0": this.qty_45G0
+                }
                 swal({
                     title: "Your Booking Data in JSON",
                     icon: "warning",
@@ -145,14 +155,12 @@
                 this.shipmentData[id].isOpen = false;
             }
         },
-
         computed: {
             helloMsg: function () {
                 return 'Hello, ' + this.name + '. You have ' + this.shipmentData.length + ' shipments.';
             }
             
         },
-    
         created() {
             let vm = this;
             $.get( "API/shipments.json").done(function( shipments ) {
@@ -164,13 +172,11 @@
                 });
             });
         },
-    
         watch: {
-        shipmentData: function() {
-            this.getBookingStatus();
-        }
+            shipmentData: function() {
+                this.getBookingStatus();
+            }
         },
-    
         mounted: function () {
             this.loading = true;
             var self = this;
@@ -180,15 +186,6 @@
                 self.loading = false;
             }, 2000);
 
-            /* ---- Vue Event Bus ---- *\
-            * The event bus acts as a global data store,
-            * allow data to be emitted from one component
-            * to another. This is because Vue follows
-            * a one-directional data flow pattern.
-            * 
-            * Data can be passed down from parent components
-            * but must be emitted back up from children.
-            **/
             EventBus.$on('update-accordion-data', function (payload) {
                 let newData = JSON.parse(payload);
                 newData.isOpen = false;           
@@ -229,10 +226,23 @@
     });
 
 
-    /* -------------------- *\
-        Vue Event Bus
-    \* -------------------- */
 
+
+
+   /* -------------------- *\
+        Vue Event Bus
+   \* -------------------- */
+
+   /* ---- Vue Event Bus ---- *\
+    * The event bus acts as a global data store,
+    * allowing data to be emitted from one component
+    * to another. This is because Vue follows a
+    * one-directional data flow pattern.
+    * 
+    * Data can be passed down from parent components
+    * but must be emitted back up from children and
+    * to other components.
+    **/
     var EventBus = new Vue();
 
     Object.defineProperties(Vue.prototype, {

@@ -7,13 +7,9 @@
  * #e69b79 - Salmon
  **/
 
-.json-textarea {
+ .json-textarea {
     font-family: monospace;
     white-space: pre;
-}
-
-.light-grey-bg {
-    background: #e1e1e1;
 }
 
 .text-navy {
@@ -32,6 +28,14 @@
     margin-bottom: 2em;
 }
 
+.pr-1 {
+  padding-right: 1em;
+}
+
 .pos-rel {
     position: relative;
+}
+
+.icon-prepend {
+    cursor: pointer;
 }
