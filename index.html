@@ -127,8 +127,8 @@
         <!-- The Vue Shipment Booking Component -->
         <template id="vue-shipment-booking-component">
             <section class="shipment-booking-component flex">
-                <div class="light-grey-bg flex">
-                    <ul class="nav navbar-nav flex">
+                <div class="light-grey-bg flex w-100">
+                    <ul class="nav navbar-nav flex space-around w-100">
 
                         <li>
                             <span id="date-view-badge" class="date-view badge eqt-badge"></span>
@@ -146,11 +146,11 @@
 
                         <!-- Origin Port -->
                         <li>
-                            <span v-show="selectedOriginPort" id="dest-port-badge" class="port-view badge eqt-badge">
+                            <span v-show="selectedOriginPort" id="origin-port-badge" class="port-view badge eqt-badge">
                                 {{ selectedOriginPort }}
                             </span>
-                            <a title="Destination Port" class="dropdown-toggle shipment-booking-button" data-toggle="dropdown" href="javascript:void(0);">
-                                <i class="icon-prepend fa fa-arrow-down"></i>
+                            <a title="Origin Port" class="dropdown-toggle shipment-booking-button" data-toggle="dropdown" href="javascript:void(0);">
+                                <i class="icon-prepend fa fa-arrow-up"></i>
                             </a>
                             <ul class="dropdown-menu eq-select" name="origin-port">
                                 <li v-for="(port, index) in originPorts">
@@ -163,7 +163,7 @@
 
                         <!-- Destination Port -->
                         <li>
-                            <span v-show="selectedDestinationPort" id="origin-port-badge" class="port-view badge eqt-badge">
+                            <span v-show="selectedDestinationPort" id="destination-port-badge" class="port-view badge eqt-badge">
                                 {{ selectedDestinationPort }}
                             </span>
                             <a title="Destination Port" class="dropdown-toggle shipment-booking-button"  data-toggle="dropdown" href="javascript:void(0);">
@@ -186,7 +186,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu eq-select" name="q-20G0">
-                                <li v-for="(item, index) in 10">
+                                <li v-for="(item, index) in 11">
                                     <a :value="qty_20G0" @click="updateContainerQty('qty_20G0', index)" class="eq-qty" data-eq="20G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
                                 </li>
                             </ul>
@@ -198,7 +198,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu eq-select" name="q-42G0">
-                                <li v-for="(item, index) in 10">
+                                <li v-for="(item, index) in 11">
                                     <a :value="qty_40G0" @click="updateContainerQty('qty_40G0', index)" class="eq-qty" data-eq="42G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}</a>
                                 </li>
                             </ul>
@@ -210,14 +210,14 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu eq-select" name="q-45G0">
-                                <li v-for="(item, index) in 10">
+                                <li v-for="(item, index) in 11">
                                     <a :value="qty_45G0" @click="updateContainerQty('qty_45G0', index)"  class="eq-qty" data-eq="45G0" :data-qty="index" data-step="1" href="javascript:void(0);">{{ index }}&nbsp;</a>
                                 </li>
                             </ul>
                         </li>
                         <li>
                             <button @click="postBookingData()" class="btn btn-success mt-10">
-                                Book Now
+                                Search
                             </button>
                         </li>
                     </ul>

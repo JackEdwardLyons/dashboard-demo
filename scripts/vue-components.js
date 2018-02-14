@@ -13,14 +13,18 @@
     * exact state of the DOM.
     **/
     Vue.component('date-picker', {
-        template: '<input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" value="" data-validate="start_date" class="form-control validatable hidden" form="void" type="text">',
+        template: '<input id="_validity_range" placeholder="max. up to 6 weeks out" name="validity_range" class="form-control validatable hidden" form="void" type="text">',
         mounted: function () {
             var self = this;
             $(this.$el).daterangepicker();
                 $('#_validity_range').on('apply.daterangepicker', function (ev, picker) {
-                    var start = picker.startDate.format('DD-MM-YY');
-                    var end   = picker.endDate.format('DD-MM-YY');
-                    $('#date-view-badge').show().html(start + ' <br> to <br> ' + end);
+                    var start = picker.startDate.format('YYYY-MM-DD');
+                    var end   = picker.endDate.format('YYYY-MM-DD');
+                    
+                    var frontEndViewStart = picker.startDate.format("MMM Do"); 
+                    var frontEndViewEnd   = picker.endDate.format("MMM Do"); 
+
+                    $('#date-view-badge').show().html(frontEndViewStart + ' to ' + frontEndViewEnd);
                     self.$bus.$emit('update-date', start, end);
                 }
             );
@@ -73,8 +77,8 @@
                 this.bookingRequest = {
                     "port_of_loading": this.selectedOriginPort,
                     "port_of_discharge": this.selectedDestinationPort,
-                    "start_date": this.startDate,
-                    "end_date": this.endDate,
+                    "start_date": this.startDate, // .format('YYYY-MM-DD'),
+                    "end_date": this.endDate, // .format('YYYY-MM-DD'),
                     "20G0": this.qty_20G0,
                     "42G0": this.qty_40G0,
                     "45G0": this.qty_45G0
@@ -86,8 +90,8 @@
                     {
                         "port_of_loading": "${ self.selectedOriginPort }",
                         "port_of_discharge": "${ self.selectedDestinationPort }",
-                        "start_date": "${ self.startDate }",
-                        "end_date": "${ self.endDate }",
+                        "start_date": "${ self.startDate.format('YYYY-MM-DD') }",
+                        "end_date": "${ self.endDate.format('YYYY-MM-DD') }",
                         "20G0": "${ self.qty_20G0 }",
                         "42G0": "${ self.qty_40G0 }",
                         "45G0": "${ self.qty_45G0 }"
@@ -98,9 +102,11 @@
         mounted: function () {
             var self = this;
             // Retreive the data from the daterangepicker
-            EventBus.$on('update-date', function (start, end) {
+            EventBus.$on('update-date', function (start, end, frontEndViewStart, frontEndViewEnd) {
                 self.startDate = start;
                 self.endDate = end;
+                self.frontEndViewStart = frontEndViewStart;
+                self.frontEndViewEnd = frontEndViewEnd;
             });
         }
     });
@@ -187,9 +193,19 @@
             }, 2000);
 
             EventBus.$on('update-accordion-data', function (payload) {
-                let newData = JSON.parse(payload);
+                let newData = payload
                 newData.isOpen = false;           
-                self.shipmentData.push(newData);
+                self.shipmentData = [];
+                self.shipmentData = JSON.parse( newData );
+                console.log(JSON.parse(newData));
+
+
+                // for (var i = 0; i < payload.length; i++) {
+                //     console.log(payload[i]);
+                //     self.shipmentData.push(JSON.parse( payload[i] ) );
+                // }
+
+                
             });
         }
     });

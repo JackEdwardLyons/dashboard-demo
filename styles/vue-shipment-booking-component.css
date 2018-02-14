@@ -23,17 +23,8 @@
     z-index: 1;
 }
 
-#origin-port-badge{
-    left: 30px;
-}
-
 #dest-port-badge {
     left: 15px;
-}
-
-.date-view {
-    left: -25px;
-    top: -22px;
 }
 
 .light-grey-bg {
