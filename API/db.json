@@ -1,0 +1,112 @@
+{
+	"request": [
+		{
+			"InternalReference": "PO101",
+			"FreightCost": "2400",
+			"CarrierPartnerAlias": "MAEU",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": [
+				{
+					"NumberOfEquipment": "1",
+					"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+					"EquipmentTypeCode": "45G0",
+					"EquipmentDescription": "40 Highcube"
+				},
+				{
+					"NumberOfEquipment": "1",
+					"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+					"EquipmentTypeCode": "22G0",
+					"EquipmentDescription": "20 General"
+				}
+			],
+			"PortOfDischargeName": "Singapore, Singapore",
+			"PortOfLoadName": "Sydney, Australia",
+			"OriginDeparts": "20-Oct-17",
+			"VesselName": "CARL SCHULTE",
+			"ForwarderDetails": {
+				"ForwarderName": "DSV Air & Sea"
+			},
+			"DestinationArrives": "07-Nov-17",
+			"VoyageNumber": "735N",
+			"CarrierName": "Maersk Line",
+			"confirmation": {
+				"LatestFullDeliveryDate": "18-Oct-17",
+				"CarrierReferenceNumber": "AAA123",
+				"ContainerReleaseNumber": "bc123",
+				"EarliestEmptyPickUpDate": "10-Oct-17",
+				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
+				"EarliestFullDropOff": "16-Oct-17",
+				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
+			},
+			"rejected": {}
+		},
+		{
+			"InternalReference": "123K5",
+			"FreightCost": "1200",
+			"CarrierPartnerAlias": "CMAU",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": [
+				{
+					"NumberOfEquipment": "1",
+					"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+					"EquipmentTypeCode": "42G0",
+					"EquipmentDescription": "40 General"
+				}
+			],
+			"PortOfDischargeName": "Shanghai, China",
+			"PortOfLoadName": "Brisbane, Australia",
+			"OriginDeparts": "15-Nov-17",
+			"VesselName": "Cape Glory",
+			"ForwarderDetails": {
+				"ForwarderName": "DB Schenker"
+			},
+			"DestinationArrives": "30-Nov-17",
+			"VoyageNumber": "101N",
+			"CarrierName": "CMA CGM",
+			"confirmation": {},
+			"rejected": {
+				"message": "Your booking has been rejected."
+			}
+		},
+		{
+			"InternalReference": "PO101",
+			"FreightCost": "2400",
+			"CarrierPartnerAlias": "MAEU",
+			"Context": "ExplorateNoTerms",
+			"EquipmentDetails": [
+				{
+					"NumberOfEquipment": "1",
+					"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+					"EquipmentTypeCode": "45G0",
+					"EquipmentDescription": "40 Highcube"
+				},
+				{
+					"NumberOfEquipment": "1",
+					"ImportExportHaulage": "MerchantExportHaulageMerchantImportHaulage",
+					"EquipmentTypeCode": "22G0",
+					"EquipmentDescription": "20 General"
+				}
+			],
+			"PortOfDischargeName": "Singapore, Singapore",
+			"PortOfLoadName": "Sydney, Australia",
+			"OriginDeparts": "20-Oct-17",
+			"VesselName": "CARL SCHULTE",
+			"ForwarderDetails": {
+				"ForwarderName": "DSV Air & Sea"
+			},
+			"DestinationArrives": "07-Nov-17",
+			"VoyageNumber": "735N",
+			"CarrierName": "Maersk Line",
+			"confirmation": {
+				"LatestFullDeliveryDate": "18-Oct-17",
+				"CarrierReferenceNumber": "",
+				"ContainerReleaseNumber": "123456",
+				"EarliestEmptyPickUpDate": "10-Oct-17",
+				"EmptyPickUpLocation": "Qube Logistics 123 Alexandria Sydney 2000",
+				"EarliestFullDropOff": "16-Oct-17",
+				"FullDropOffLocation": "DP World Sydney Botany Bay Sydney 2000"
+			},
+			"rejected": {}
+		}
+	]
+}
